@@ -15,4 +15,13 @@
     alsa.enable = true;
     pulse.enable = true;
   };
+
+  services.dbus.enable = true;
+  
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    jetbrains-mono
+  ];
 }
