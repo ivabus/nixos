@@ -9,6 +9,7 @@
       cargo
       rustc
       neofetch
+      gitFull
     ];
     shell = pkgs.zsh;
   };
@@ -22,7 +23,5 @@
 
   programs.git = {
     enable = true;
-    userName  = "Ivan Bushchik";
-    userEmail = "ivabus@ivabus.dev";
   };
 }

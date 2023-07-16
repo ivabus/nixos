@@ -8,12 +8,16 @@
       experimental-features = nix-command flakes
     '';
   };
-  
+
   environment.systemPackages = with pkgs; [
     neovim
     wget
     git
     curl
+    usbutils
+    usbmuxd
+    pciutils
+    coreutils-full
   ];
 
   networking.networkmanager.enable = true;

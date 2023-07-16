@@ -4,12 +4,48 @@
   environment.systemPackages = with pkgs; [
     firefox
     alacritty
+    pavucontrol
+    mpv
+    glib
+    ffmpeg
+    cinnamon.mint-y-icons
   ];
+  services.fwupd.enable = true;
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        user = "greeter";
+      };
+    };
+  };
+  programs.sway = {
+    enable = true;
+    extraPackages = with pkgs; [
+      waybar
+      grim
+      slurp
+      wf-recorder
+      sway-launcher-desktop
+      swaybg
+      swayidle
+      swaylock
+      poweralertd
+      kanshi
+      catppuccin-cursors
+      libsForQt5.qt5ct
+      mako
+      pulseaudio
+      brightnessctl
+    ];
+    wrapperFeatures.gtk = true;
+  };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -17,7 +53,7 @@
   };
 
   services.dbus.enable = true;
-  
+
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk

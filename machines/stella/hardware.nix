@@ -27,4 +27,10 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  services.tlp.settings = {
+    START_CHARGE_THRESH_BAT0 = 40;
+    STOP_CHARGE_THRESH_BAT0 = 80;
+  };
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "powersave";
 }
