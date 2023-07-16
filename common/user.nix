@@ -22,7 +22,7 @@
 
   programs.git = {
     enable = true;
-    userName  = "my_git_username";
-    userEmail = "my_git_username@gmail.com";
+    userName  = "Ivan Bushchik";
+    userEmail = "ivabus@ivabus.dev";
   };
 }
