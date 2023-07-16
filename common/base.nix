@@ -7,6 +7,15 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    settings = {
+      auto-optimise-store = true;
+      trusted-users = [ "root" "@wheel" ];
+    };
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+
   };
 
   environment.systemPackages = with pkgs; [
