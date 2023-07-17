@@ -20,6 +20,7 @@
         ./common/laptop.nix
         ./common/user.nix
         ./common/graphical.nix
+        ./common/gaming.nix
         ./machines/stella/configuration.nix
         ./machines/stella/hardware.nix
       ];
