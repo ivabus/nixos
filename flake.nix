@@ -12,15 +12,15 @@
 
 
   outputs = { self, nixpkgs, ... }@inputs: {
-
+    # Stella = Unchartevice 6540 (Ryzen 3 3250U, 16GB RAM)
     nixosConfigurations."stella" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./common/base.nix
-        ./common/laptop.nix
         ./common/user.nix
-        ./common/graphical.nix
-        ./common/gaming.nix
+        ./roles/laptop.nix
+        ./roles/graphical.nix
+        ./roles/gaming.nix
         ./machines/stella/configuration.nix
         ./machines/stella/hardware.nix
       ];
@@ -28,20 +28,39 @@
 
     /* These machines will be configured later. */
     /*
+    # Celerrime = MacBook Air M2
     nixosConfigurations."celerrime" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
+        ./common/base.nix
+        ./common/user.nix
+        ./roles/laptop.nix
+        ./roles/graphical.nix
         ./machines/celerrime/configuration.nix
-        ./user.nix
-        ./graphical.nix
+        ./machines/celerrime/hardware.nix
       ];
     };
-
+    # Effundam = MacBook Air M1 (server usage). Will not be added to flake.nix until thunderbolt and apfs proper support
+    nixosConfigurations."effundam" = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./common/base.nix
+        ./common/user.nix
+        ./roles/laptop.nix
+        ./machines/effundam/configuration.nix
+        ./machines/effundam/hardware.nix
+      ];
+    };
+    # Vetus = iMac 27" 2017, i5, 64 GB RAM
     nixosConfigurations."vetus" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        ./common/base.nix
+        ./common/user.nix
+        ./roles/graphical.nix
+        ./roles/gaming.nix
         ./machines/vetus/configuration.nix
-        ./
+        ./machines/vetus/hardware.nix
       ];
     };
     */

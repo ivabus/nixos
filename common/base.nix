@@ -24,13 +24,16 @@
     git
     curl
     usbutils
-    usbmuxd
     pciutils
     coreutils-full
+    killall
   ];
 
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
+
+  services.timesyncd.enable = true;
+  networking.timeServers = [ "ntp1.vniiftri.ru" "0.ru.pool.ntp.org" "0.pool.ntp.org" ];
 
   i18n.defaultLocale = "ru_RU.UTF-8";
   console = {

@@ -5,10 +5,12 @@
     firefox
     alacritty
     pavucontrol
+    bottom
     mpv
     glib
     ffmpeg
     cinnamon.mint-y-icons
+    usbmuxd
   ];
   services.fwupd.enable = true;
   services.greetd = {
