@@ -8,8 +8,15 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "nct6775" ];
   boot.extraModulePackages = [ ];
+
+
+  environment.etc = {
+      "sysconfig/lm_sensors".text = ''
+        HWMON_MODULES="lm75"
+  	'';
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/e9d47776-8f25-490b-9ea3-ee80ab9d6110";

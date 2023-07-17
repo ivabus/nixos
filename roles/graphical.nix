@@ -11,10 +11,12 @@
     ffmpeg
     cinnamon.mint-y-icons
     usbmuxd
+    telegram-desktop
   ];
   services.fwupd.enable = true;
   services.greetd = {
     enable = true;
+    vt = 7;
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
@@ -40,6 +42,7 @@
       mako
       pulseaudio
       brightnessctl
+      wdisplays
     ];
     wrapperFeatures.gtk = true;
   };
@@ -61,5 +64,6 @@
     noto-fonts-cjk
     noto-fonts-emoji
     jetbrains-mono
+    font-awesome
   ];
 }
