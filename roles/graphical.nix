@@ -9,11 +9,12 @@
     mpv
     glib
     ffmpeg
-    cinnamon.mint-y-icons
+    cinnamon.nemo
     usbmuxd
     telegram-desktop
+    keepassxc
   ];
-  services.fwupd.enable = true;
+
   services.greetd = {
     enable = true;
     vt = 7;
@@ -37,7 +38,6 @@
       swaylock
       poweralertd
       kanshi
-      catppuccin-cursors
       libsForQt5.qt5ct
       mako
       pulseaudio
@@ -55,15 +55,29 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    alsa.support32Bit = true;
+    jack.enable = true;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk2";
+    style = "gtk2";
   };
 
   services.dbus.enable = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
     jetbrains-mono
     font-awesome
+    #google-fonts
+    liberation_ttf
+    open-sans
+    roboto
+    roboto-mono
+    kochi-substitute
   ];
 }

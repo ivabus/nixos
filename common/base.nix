@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
@@ -15,7 +14,8 @@
       automatic = true;
       options = "--delete-older-than 7d";
     };
-
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
   };
 
   environment.systemPackages = with pkgs; [
@@ -27,19 +27,7 @@
     pciutils
     coreutils-full
     killall
+    git-crypt
   ];
-
-  networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
-
-  services.timesyncd.enable = true;
-  networking.timeServers = [ "ntp1.vniiftri.ru" "0.ru.pool.ntp.org" "0.pool.ntp.org" ];
-
-  i18n.defaultLocale = "ru_RU.UTF-8";
-  console = {
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-u16b.psf.gz";
-    keyMap = "us";
-    packages = with pkgs; [ terminus_font ];
-  };
 
 }

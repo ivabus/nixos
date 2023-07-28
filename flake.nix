@@ -11,16 +11,22 @@
   };
 
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     # Stella = Unchartevice 6540 (Ryzen 3 3250U, 16GB RAM)
     nixosConfigurations."stella" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        home-manager.nixosModules.home-manager
         ./common/base.nix
         ./common/user.nix
-        ./roles/laptop.nix
+        ./common/laptop.nix
+        ./common/networking.nix
+        ./common/locale.nix
+        ./common/remote-access.nix
         ./roles/graphical.nix
-        ./roles/gaming.nix
+        #./roles/gaming.nix
+        ./roles/devel.nix
+        ./roles/yggdrasil-client.nix
         ./machines/stella/configuration.nix
         ./machines/stella/hardware.nix
       ];

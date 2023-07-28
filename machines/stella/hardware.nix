@@ -39,5 +39,5 @@
     STOP_CHARGE_THRESH_BAT0 = 80;
   };
   powerManagement.enable = true;
-  powerManagement.cpuFreqGovernor = "powersave";
+  powerManagement.cpuFreqGovernor = "performance";
 }
