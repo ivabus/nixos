@@ -24,6 +24,7 @@
         ./common/locale.nix
         ./common/remote-access.nix
         ./roles/graphical.nix
+        ./roles/latex.nix
         #./roles/gaming.nix
         ./roles/devel.nix
         ./roles/yggdrasil-client.nix
@@ -32,6 +33,26 @@
       ];
     };
 
+    # Vetus = iMac 27" 2017, i5, 64 GB RAM
+    nixosConfigurations."vetus" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        home-manager.nixosModules.home-manager
+        ./common/base.nix
+        ./common/user.nix
+        ./common/laptop.nix
+        ./common/networking.nix
+        ./common/locale.nix
+        ./common/remote-access.nix
+        ./roles/graphical.nix
+        ./roles/latex.nix
+        #./roles/gaming.nix
+        ./roles/devel.nix
+        ./roles/yggdrasil-client.nix
+        ./machines/vetus/configuration.nix
+        ./machines/vetus/hardware.nix
+      ];
+    };
     /* These machines will be configured later. */
     /*
     # Celerrime = MacBook Air M2
@@ -55,18 +76,6 @@
         ./roles/laptop.nix
         ./machines/effundam/configuration.nix
         ./machines/effundam/hardware.nix
-      ];
-    };
-    # Vetus = iMac 27" 2017, i5, 64 GB RAM
-    nixosConfigurations."vetus" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./common/base.nix
-        ./common/user.nix
-        ./roles/graphical.nix
-        ./roles/gaming.nix
-        ./machines/vetus/configuration.nix
-        ./machines/vetus/hardware.nix
       ];
     };
     */
