@@ -28,6 +28,7 @@
     coreutils-full
     killall
     git-crypt
+    python3Minimal
   ];
 
 }

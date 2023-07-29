@@ -5,7 +5,9 @@
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.driSupport32Bit = true;
   services.pipewire.alsa.support32Bit = true;
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
+    prismlauncher
     steam
     wineWowPackages.stable
     wine

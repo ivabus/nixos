@@ -11,5 +11,6 @@
     clang
     llvm
     lld
+    python3Full
   ];
 }
