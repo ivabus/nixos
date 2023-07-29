@@ -8,10 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
   };
 
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, apple-silicon-support, ... }@inputs: {
     # Stella = Unchartevice 6540 (Ryzen 3 3250U, 16GB RAM)
     nixosConfigurations."stella" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -53,20 +54,31 @@
         ./machines/vetus/hardware.nix
       ];
     };
-    /* These machines will be configured later. */
-    /*
+
     # Celerrime = MacBook Air M2
     nixosConfigurations."celerrime" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
+        home-manager.nixosModules.home-manager
+        apple-silicon-support.nixosModules.apple-silicon-support
         ./common/base.nix
         ./common/user.nix
-        ./roles/laptop.nix
+        ./common/laptop.nix
+        ./common/networking.nix
+        ./common/locale.nix
+        ./common/remote-access.nix
         ./roles/graphical.nix
+        #./roles/latex.nix
+        #./roles/gaming.nix
+        #./roles/devel.nix
+        ./roles/yggdrasil-client.nix
         ./machines/celerrime/configuration.nix
         ./machines/celerrime/hardware.nix
       ];
     };
+
+    /* These machines will be configured later. */
+    /*
     # Effundam = MacBook Air M1 (server usage). Will not be added to flake.nix until thunderbolt and apfs proper support
     nixosConfigurations."effundam" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
