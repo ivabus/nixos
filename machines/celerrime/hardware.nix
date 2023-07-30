@@ -29,6 +29,7 @@
   hardware.asahi.peripheralFirmwareDirectory = ../../asahi/firmware;
   hardware.asahi.addEdgeKernelConfig = true;
   hardware.asahi.useExperimentalGPUDriver = true;
+
   networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
