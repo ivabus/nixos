@@ -2,7 +2,7 @@
 
 ## Deploying
 
-Setup disks, mount root to `/mnt` and `/boot` to `/mnt/boot` and run something like it
+Setup disks, mount root to `/mnt` and `/boot` to `/mnt/boot` and run something like this
 
 ```shell
 git clone https://github.com/ivabus/nixos /mnt/etc/nixos
