@@ -24,6 +24,10 @@ Apple Silicon hosts require additional `--impure` flag for firmware installation
 - vetus (iMac 27" 2017)
 - celerrime (MacBook Air M2)
 
-## TODO
+## Dotfiles (from `ivabus/dotfiles`)
 
-- do something with dotfiles installation from [ivabus/dotfiles](https://github.com/ivabus/dotfiles)
+I'm installing my dotfiles using (with prepared script)
+
+```shell
+curl https://iva.bz/nix | sh
+```
