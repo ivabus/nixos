@@ -9,7 +9,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [ "apple_dcp.show_notch=1" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c313a438-700c-4d9c-9413-354ebfb010eb";
@@ -26,10 +25,6 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/272341f1-b083-497e-b129-aef8732b5b50"; }
     ];
-  hardware.asahi.peripheralFirmwareDirectory = ../../asahi/firmware;
-  hardware.asahi.addEdgeKernelConfig = true;
-  hardware.asahi.useExperimentalGPUDriver = true;
-
   networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";

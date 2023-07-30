@@ -2,8 +2,12 @@
 
 ## Deploying
 
+Setup disks, mount root to `/mnt` and `/boot` to `/mnt/boot` and run something like it
+
 ```shell
-nixos-install --flake https://github.com/ivabus/nixos#host
+git clone https://github.com/ivabus/nixos /mnt/etc/nixos
+nixos-generate-config --show-hardware-config --root /mnt > /mnt/etc/nixos/machines/host/hardware.nix
+nixos-install --flake path:.#host
 ```
 
 ## Rebuilding

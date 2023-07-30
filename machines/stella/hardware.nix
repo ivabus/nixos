@@ -11,7 +11,6 @@
   boot.kernelModules = [ "kvm-amd" "nct6775" ];
   boot.extraModulePackages = [ ];
 
-
   environment.etc = {
       "sysconfig/lm_sensors".text = ''
         HWMON_MODULES="lm75"
@@ -34,10 +33,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  services.tlp.settings = {
-    START_CHARGE_THRESH_BAT0 = 40;
-    STOP_CHARGE_THRESH_BAT0 = 80;
-  };
-  powerManagement.enable = true;
-  powerManagement.cpuFreqGovernor = "performance";
 }
