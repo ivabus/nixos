@@ -5,7 +5,7 @@ let
 in {
   users.users.ivabus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "input" ];
     uid = 1000;
     packages = with pkgs; [
       tree
