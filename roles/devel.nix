@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    jetbrains.clion
     rustc
     cargo
     rustup

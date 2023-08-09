@@ -26,7 +26,7 @@
         ./common/remote-access.nix
         ./roles/graphical.nix
         ./roles/latex.nix
-        #./roles/gaming.nix
+        ./roles/gaming.nix
         ./roles/devel.nix
         ./roles/yggdrasil-client.nix
         ./machines/stella/configuration.nix
@@ -68,9 +68,9 @@
         ./common/locale.nix
         ./common/remote-access.nix
         ./roles/graphical.nix
-        #./roles/latex.nix
+        ./roles/latex.nix
         #./roles/gaming.nix
-        #./roles/devel.nix
+        ./roles/devel.nix
         ./roles/yggdrasil-client.nix
         ./machines/celerrime/configuration.nix
         ./machines/celerrime/hardware.nix

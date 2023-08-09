@@ -5,7 +5,7 @@ let
 in {
   users.users.ivabus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "input" ];
     uid = 1000;
     packages = with pkgs; [
       tree
@@ -21,6 +21,10 @@ in {
 
       # Stella
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXWPxd1uVVxEARVezy0s0LZ9fC/Mif6s218oNWDyJNqZMnAiaMwwP/mGHqCy1OXFCb8/5Kv3AM+z6sxY4mIvyXhx3lPW841HoOlJxR+JQ50qgxon/oCXjKFVMZjFptRtexgQLhubhjyINagj7T/K6UjsfC9sIG5DUJdem0O8ZD/8EqvIrkeNGP52klJM3sR4vhXMNwOIPkukNOMq+OLXgAaCXRImc53N+Whi/tCaxxr/Nen5CVGo9raAekRKaiBLKvgboXYnxzNFxiecUe7mqPbyE2bcnJ+rDC7UlwrNYGyIQ/8POjQwbanFxT4UJhS5ib6/hSpia0eYaSiutBqU3fQcIXrmTQWOrGPdrUsLHw5xGMfwnPmoDFMYHdcchU0v6QijbrHrsqVV/bikWoQF4JT7PCwOejfVowOioPghvW2u34gTyMKPkueaMk0w8Jq45V0meneyN5SbobqZX3XFze4Uz3BN8nuiZB6pFRPv0eKLqEqX8+nST9uQDBkqKTvwE= ivabus@stella"
+
+      # Celerrime
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/x2Xkj/w8Q6Ri+iP6b3dzY4KZ1q1RMqZmlFiiki/BuK+1Z+NMY6e6zgTJs1hSsd42XaTotHs75BcO13ou4Sa6p5Gmn+lC1tUWSEUhBoJimFmGp7E9wZjtzHIZyVRj7WMBUmbn4tgsnlGTS1rc2ODwBC7YLpqVzmgkLE3NyFXgSYhCRddvj16netrF6pQp+I/iTCblnhn8LOsnZMSU0aT92ybcLp6glwFh9DQNLyQ58V0fa2xzRN1iehu0TvX/M1aO91rseME+Ygz5m/JFc+G8onuUaDK/yezqkI9i6qxBHqu7+mBwUW5EIZLCwYd4JYDTGKrgVdO98acVcAjLv8rfKV8/SuODJ1fQafaz6C+O+3W9d5/L/HmCWunYKqDDNp14e8w0IHM2XC4mMYNABHisWkW6fMQ6mZxv2FuiYSITKdIUfFVbpdPOG7GF6jyDb/+LCR4vidNqXAU3ESGVOoyfDOvwm2lS5H7TVvBqEZUSjvIK8rqN5WRAdZ1iolADDoU= ivabus@celerrime"
+
     ];
     hashedPassword = secrets.hashed-password;
   };
