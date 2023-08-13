@@ -6,10 +6,10 @@ let pkgs = import <nixpkgs> {
   };
 };
 in
-  pkgs.callPackage (
-    {mkShell, pkg-config, zlib}:
+  pkgs.pkgsStatic.callPackage (
+    {mkShell, pkg-config, zlib, file}:
     mkShell {
-      nativeBuildInputs = [ pkg-config ];
+      nativeBuildInputs = [ pkg-config file];
       buildInputs = [ zlib ];
     }
   ) {}
