@@ -11,5 +11,8 @@ in
     mkShell {
       nativeBuildInputs = [ pkg-config file];
       buildInputs = [ zlib ];
+      env = {
+        CROSS = crossSystem;
+      };
     }
   ) {}
