@@ -40,7 +40,6 @@
       kanshi
       libsForQt5.qt5ct
       mako
-      pulseaudio
       brightnessctl
       wdisplays
     ];
@@ -70,6 +69,8 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     noto-fonts-emoji
     jetbrains-mono
     font-awesome
@@ -80,4 +81,37 @@
     roboto-mono
     kochi-substitute
   ];
+
+  home-manager.users.ivabus = {
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Catppuccin-Macchiato-Standard-Blue-dark";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "blue" ];
+          tweaks = [ "rimless" ];
+          size = "standard";
+          variant = "macchiato";
+        };
+      };
+      iconTheme = {
+        name = "Mint-Y-Blue";
+        package = pkgs.cinnamon.mint-y-icons;
+      };
+      cursorTheme = {
+        name = "Catppuccin-Macchiato-Dark-Cursors";
+        package = pkgs.catppuccin-cursors.macchiatoDark;
+      };
+      font = {
+        name = "Ubuntu";
+        size = 9;
+        package = pkgs.ubuntu_font_family;
+      };
+    };
+    home.pointerCursor = {
+      name = "Catppuccin-Macchiato-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.macchiatoDark;
+      x11.defaultCursor = "Catppuccin-Macchiato-Dark-Cursors";
+    };
+  };
 }

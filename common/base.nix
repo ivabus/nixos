@@ -18,17 +18,25 @@
     daemonIOSchedClass = "idle";
   };
 
+  documentation = {
+    doc.enable = false;
+    info.enable = false;
+    man.enable = true;
+    nixos.enable = false;
+  };
+
   environment.systemPackages = with pkgs; [
-    neovim
     wget
-    git
     curl
     usbutils
     pciutils
     coreutils-full
     killall
+    git
     git-crypt
+    neovim
     python3Minimal
   ];
 
+  boot.tmp.cleanOnBoot = true;
 }

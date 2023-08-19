@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   networking.wireless.iwd.enable = true;
@@ -28,4 +28,6 @@
 
   services.timesyncd.enable = true;
   networking.timeServers = [ "ntp1.vniiftri.ru" "0.ru.pool.ntp.org" "0.pool.ntp.org" ];
+  boot.kernelModules = [ "af_packet" ];
+  environment.systemPackages = with pkgs; [ mtr tcpdump traceroute ];
 }

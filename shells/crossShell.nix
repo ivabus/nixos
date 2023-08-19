@@ -9,10 +9,10 @@ in
   pkgs.pkgsStatic.callPackage (
     {mkShell, pkg-config, zlib, file}:
     mkShell {
-      nativeBuildInputs = [ pkg-config file];
+      nativeBuildInputs = [ pkg-config file ];
       buildInputs = [ zlib ];
       env = {
-        CROSS = crossSystem;
+        CROSS_COMPILE = crossSystem;
       };
     }
   ) {}

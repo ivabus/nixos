@@ -2,10 +2,12 @@
 
 let
   secrets = import ../secrets.nix;
-in {
+in rec {
+  users.mutableUsers = false;
+
   users.users.ivabus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" ];
+    extraGroups = [ "wheel" "input" "video" "audio" "disk" "libvirtd" "qemu-libvirtd"];
     uid = 1000;
     packages = with pkgs; [
       tree
@@ -29,6 +31,12 @@ in {
     hashedPassword = secrets.hashed-password;
   };
 
+
+  users.users.root = {
+    hashedPassword = null;
+    openssh.authorizedKeys.keys = users.users.ivabus.openssh.authorizedKeys.keys;
+  };
+
   programs.zsh = {
     enable = true;
   };
@@ -39,36 +47,6 @@ in {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.ivabus = {
-    gtk = {
-      enable = true;
-      theme = {
-        name = "Catppuccin-Macchiato-Standard-Blue-dark";
-        package = pkgs.catppuccin-gtk.override {
-          accents = [ "blue" ];
-          tweaks = [ "rimless" ];
-          size = "standard";
-          variant = "macchiato";
-        };
-      };
-      iconTheme = {
-        name = "Mint-Y-Blue";
-        package = pkgs.cinnamon.mint-y-icons;
-      };
-      cursorTheme = {
-        name = "Catppuccin-Macchiato-Dark-Cursors";
-        package = pkgs.catppuccin-cursors.macchiatoDark;
-      };
-      font = {
-        name = "Ubuntu";
-        size = 9;
-        package = pkgs.ubuntu_font_family;
-      };
-    };
-    home.pointerCursor = {
-      name = "Catppuccin-Macchiato-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
-      x11.defaultCursor = "Catppuccin-Macchiato-Dark-Cursors";
-    };
     programs.git = {
       enable = true;
       userName = "Ivan Bushchik";

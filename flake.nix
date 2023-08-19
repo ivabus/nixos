@@ -19,15 +19,18 @@
       modules = [
         home-manager.nixosModules.home-manager
         ./common/base.nix
-        ./common/user.nix
         ./common/laptop.nix
-        ./common/networking.nix
         ./common/locale.nix
+        ./common/networking.nix
         ./common/remote-access.nix
+        ./common/security.nix
+        ./common/user.nix
+        ./roles/design.nix
+        ./roles/devel.nix
+        ./roles/gaming.nix
         ./roles/graphical.nix
         ./roles/latex.nix
-        ./roles/gaming.nix
-        ./roles/devel.nix
+        ./roles/virtualisation.nix
         ./roles/yggdrasil-client.nix
         ./machines/stella/configuration.nix
         ./machines/stella/hardware.nix
@@ -40,15 +43,17 @@
       modules = [
         home-manager.nixosModules.home-manager
         ./common/base.nix
-        ./common/user.nix
         ./common/laptop.nix
-        ./common/networking.nix
         ./common/locale.nix
+        ./common/networking.nix
         ./common/remote-access.nix
+        ./common/security.nix
+        ./common/user.nix
         ./roles/graphical.nix
         ./roles/latex.nix
         ./roles/gaming.nix
         ./roles/devel.nix
+        ./roles/virtualisation.nix
         ./roles/yggdrasil-client.nix
         ./machines/vetus/configuration.nix
         ./machines/vetus/hardware.nix
