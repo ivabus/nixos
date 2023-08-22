@@ -13,9 +13,7 @@
       enable = true;
       killUnconfinedConfinables = true;
     };
-
     allowUserNamespaces = true;
-    
   };
 
   boot.kernel.sysctl = {

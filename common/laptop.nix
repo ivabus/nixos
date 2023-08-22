@@ -1,14 +1,22 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
-  environment.systemPackages = with pkgs; [
-    powertop
-    lm_sensors
-  ];
+let
+  cfg = config.my.laptop;
+in {
+  options = {
+    my.laptop.enable = lib.mkEnableOption "Laptop-specific configuration";
+  };
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  config = lib.mkIf (cfg.enable) {
+    environment.systemPackages = with pkgs; [
+      powertop
+      lm_sensors
+    ];
 
-  services.tlp.enable = true;
-  services.upower.enable = true;
+    hardware.bluetooth.enable = true;
+    services.blueman.enable = true;
+
+    services.tlp.enable = true;
+    services.upower.enable = true;
+  };
 }

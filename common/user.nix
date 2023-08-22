@@ -14,7 +14,7 @@ in rec {
       cargo
       rustc
       neofetch
-      gitFull
+      htop
     ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [

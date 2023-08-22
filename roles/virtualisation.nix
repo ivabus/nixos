@@ -1,5 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, ... }:
 
-{
-  virtualisation.libvirtd.enable = true;
+let
+  cfg = config.my.roles.virtualisation;
+in {
+  options.my.roles.virtualisation.enable = lib.mkEnableOption "Enable tools for virtualisation";
+  config = lib.mkIf (cfg.enable) {
+    virtualisation.libvirtd.enable = true;
+    environment.systemPackages = with pkgs; [
+      qemu_full
+      qemu-utils
+    ];
+  };
 }

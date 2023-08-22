@@ -18,22 +18,7 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        ./common/base.nix
-        ./common/laptop.nix
-        ./common/locale.nix
-        ./common/networking.nix
-        ./common/remote-access.nix
-        ./common/security.nix
-        ./common/user.nix
-        ./roles/design.nix
-        ./roles/devel.nix
-        ./roles/gaming.nix
-        ./roles/graphical.nix
-        ./roles/latex.nix
-        ./roles/virtualisation.nix
-        ./roles/yggdrasil-client.nix
-        ./machines/stella/configuration.nix
-        ./machines/stella/hardware.nix
+        ./machines/stella
       ];
     };
 
