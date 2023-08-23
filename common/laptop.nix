@@ -8,6 +8,7 @@ in {
   };
 
   config = lib.mkIf (cfg.enable) {
+    networking.wireless.iwd.enable = true;
     environment.systemPackages = with pkgs; [
       lm_sensors
     ];

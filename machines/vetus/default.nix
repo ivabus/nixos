@@ -25,6 +25,8 @@ in {
     yggdrasil-client.enable = true;
   };
 
+  networking.useDHCP = true;
+
   services.xserver.videoDrivers=["amdgpu"];
   boot.initrd.kernelModules=["amdgpu"];
   

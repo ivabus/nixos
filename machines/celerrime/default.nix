@@ -26,6 +26,9 @@ in {
     yggdrasil-client.enable = true;
   };
 
+  networking.useDHCP = true;
+
+
   # Setup asahi-specific things. NOTE: you must copy firmware from ESP to /etc/nixos/asahi/firmware
   hardware.asahi.peripheralFirmwareDirectory = ../../asahi/firmware;
   hardware.asahi.addEdgeKernelConfig = true;

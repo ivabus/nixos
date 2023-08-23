@@ -27,6 +27,8 @@ in {
     yggdrasil-client.enable = true;
   };
 
+  networking.useDHCP = true;
+
   system.stateVersion = "23.05";
 }
 

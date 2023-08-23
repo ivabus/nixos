@@ -1,20 +1,27 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  networking.wireless.iwd.enable = true;
-  networking.wireless.iwd.settings = {
-    General = {
-      # Enable DHCP in IWD, TODO: don't do it
-      EnableNetworkConfiguration = true;
-    };
+  networking.firewall.allowPing = true;
+  networking.useNetworkd = lib.mkDefault true;
+  systemd.network.wait-online.enable = lib.mkDefault false;
+
+  # Use systemd-resolved for DoT support.
+  services.resolved = {
+    enable = true;
+    dnssec = "false";
+    extraConfig = ''
+      DNSOverTLS=yes
+    '';
   };
 
-  # TODO: setup DoH or DoT
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
+  # Used by systemd-resolved, not directly by resolv.conf.
+  networking.nameservers = [
+    "8.8.8.8#dns.google"
+    "1.0.0.1#cloudflare-dns.com"
+  ];
 
   networking.enableIPv6 = true;
 
-  services.resolved.enable = true;
   services.avahi = {
     enable = true;
     nssmdns = true;
