@@ -10,6 +10,7 @@ in {
       persistentKeys = true;
       settings = {
         Peers = [
+          # Maybe add more peers, not only mine
           "tls://ygg.iva.bz:50002"
         ];
       };

@@ -7,6 +7,7 @@ in rec {
 
   users.users.ivabus = {
     isNormalUser = true;
+    # Figure out groups I need
     extraGroups = [ "wheel" "input" "video" "audio" "disk" "libvirtd" "qemu-libvirtd"];
     uid = 1000;
     packages = with pkgs; [

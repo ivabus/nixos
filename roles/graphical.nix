@@ -15,7 +15,6 @@ in {
       ffmpeg
       cinnamon.nemo
       usbmuxd
-      telegram-desktop
       keepassxc
     ];
 
@@ -29,6 +28,7 @@ in {
         };
       };
     };
+
     programs.sway = {
       enable = true;
       extraPackages = with pkgs; [

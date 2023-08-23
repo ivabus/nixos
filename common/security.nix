@@ -6,8 +6,8 @@
   security = {
     lockKernelModules = true;
     protectKernelImage = true;
-    allowSimultaneousMultithreading = true;
-    forcePageTableIsolation = false;
+    allowSimultaneousMultithreading = false;
+    forcePageTableIsolation = true;
     virtualisation.flushL1DataCache = "always";
     apparmor = {
       enable = true;

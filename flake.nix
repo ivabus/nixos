@@ -27,21 +27,7 @@
       system = "x86_64-linux";
       modules = [
         home-manager.nixosModules.home-manager
-        ./common/base.nix
-        ./common/laptop.nix
-        ./common/locale.nix
-        ./common/networking.nix
-        ./common/remote-access.nix
-        ./common/security.nix
-        ./common/user.nix
-        ./roles/graphical.nix
-        ./roles/latex.nix
-        ./roles/gaming.nix
-        ./roles/devel.nix
-        ./roles/virtualisation.nix
-        ./roles/yggdrasil-client.nix
-        ./machines/vetus/configuration.nix
-        ./machines/vetus/hardware.nix
+        ./machines/vetus
       ];
     };
 
@@ -51,19 +37,7 @@
       modules = [
         home-manager.nixosModules.home-manager
         apple-silicon-support.nixosModules.apple-silicon-support
-        ./common/base.nix
-        ./common/user.nix
-        ./common/laptop.nix
-        ./common/networking.nix
-        ./common/locale.nix
-        ./common/remote-access.nix
-        ./roles/graphical.nix
-        ./roles/latex.nix
-        #./roles/gaming.nix
-        ./roles/devel.nix
-        ./roles/yggdrasil-client.nix
-        ./machines/celerrime/configuration.nix
-        ./machines/celerrime/hardware.nix
+        ./machines/celerrime
       ];
     };
 
@@ -73,11 +47,9 @@
     nixosConfigurations."effundam" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        ./common/base.nix
-        ./common/user.nix
-        ./roles/laptop.nix
-        ./machines/effundam/configuration.nix
-        ./machines/effundam/hardware.nix
+        home-manager.nixosModules.home-manager
+        apple-silicon-support.nixosModules.apple-silicon-support
+        ./machines/effundam
       ];
     };
     */

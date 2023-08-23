@@ -4,13 +4,11 @@ let
   cfg = config.my.roles.gaming;
 in {
   options.my.roles.gaming.enable = lib.mkEnableOption "Enable wine & steam";
-  config = lib.mkIf (cfg.enable) {
+  config = lib.mkIf (cfg.enable) (lib.mkMerge {
     nixpkgs.config.allowUnfree = true;
     hardware.opengl.driSupport32Bit = true;
     services.pipewire.alsa.support32Bit = true;
-    programs.steam.enable = true;
     environment.systemPackages = with pkgs; [
-      steam
       wineWowPackages.stable
       wine
       (wine.override { wineBuild = "wine64"; })
@@ -18,5 +16,7 @@ in {
       winetricks
       wineWowPackages.waylandFull
     ];
-  };
+  }
+  # Enable steam only on x86_64 (since we have hosts with ARM, but I don't think I will enable my.roles.gaming on ARM system soon)
+  (lib.mkIf(pkgs.stdenv.isx86_64) {programs.steam.enable = true;}))
 }
