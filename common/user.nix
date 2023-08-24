@@ -5,16 +5,17 @@ let
 in rec {
   users.mutableUsers = false;
 
+  users.groups.ivabus = { gid = 1000; };
   users.users.ivabus = {
     isNormalUser = true;
-    # Figure out groups I need
-    extraGroups = [ "wheel" "input" "video" "audio" "disk" "libvirtd" "qemu-libvirtd"];
+    group = "ivabus";
+    extraGroups = [ "users" "wheel" ];
     uid = 1000;
     packages = with pkgs; [
       tree
       cargo
       rustc
-      neofetch
+      neofetch # I use NixOS BTW
       htop
     ];
     shell = pkgs.zsh;

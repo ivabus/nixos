@@ -24,6 +24,22 @@ Apple Silicon hosts require additional `--impure` flag for firmware installation
 - vetus (iMac 27" 2017)
 - celerrime (MacBook Air M2)
 
+## Modules
+
+Module example:
+```nix
+{ config, lib, ... }:
+
+let
+    cfg = config.my.MODULE;
+in {
+  options.my.MODULE.enable = lib.mkEnableOption "Enable MODULE";
+  config = lib.mkIf (cfg.enable) {
+    MODULE_CONFIGURATION
+  };
+}
+```
+
 ## Shells
 
 I "made" some shell in [shells/](./shells).
@@ -35,3 +51,9 @@ I install my dotfiles with prepared script
 ```shell
 curl https://iva.bz/nix | sh
 ```
+
+## TODO
+
+- Setup services (which I host)
+- Setup "secret" roles (I need them)
+- Setup router

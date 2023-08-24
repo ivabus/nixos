@@ -19,6 +19,8 @@
   boot.kernel.sysctl = {
     "kernel.sysrq" = 0;
 
+    # Picked from https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Network-stack
+
     "net.ipv4.icmp_ignore_bogus_error_responces" = 1;
     "net.ipv4.icmp_echo_ignore_broadcasts" = 1;
     "net.ipv4.conf.default.rp_filter" = 1;

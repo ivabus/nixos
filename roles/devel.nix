@@ -14,6 +14,7 @@ in {
         llvm
         lld
         python3Full
+        gnumake
         automake
         autoconf
         meson

@@ -7,7 +7,7 @@ in {
   config = lib.mkIf (cfg.enable){
     environment.systemPackages = with pkgs; [
       # Maybe I don't need to use -full variant of texlive
-      # I should find distribution I actually need
+      # TODO: I should find distribution I actually need
       texlive.combined.scheme-full
     ];
   };

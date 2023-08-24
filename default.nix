@@ -2,7 +2,7 @@ rec {
   common = import ./common;
   roles = import ./roles;
 
-  modules = { pkgs, ... }: rec {
+  modules = { pkgs, ... }: {
     imports = [
       common
       roles

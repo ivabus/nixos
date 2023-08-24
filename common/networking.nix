@@ -2,6 +2,7 @@
 
 {
   networking.firewall.allowPing = true;
+
   networking.useNetworkd = lib.mkDefault true;
   systemd.network.wait-online.enable = lib.mkDefault false;
 

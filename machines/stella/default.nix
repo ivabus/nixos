@@ -20,7 +20,7 @@ in {
     devel.enable = true;
     gaming.enable = true;
     graphical.enable = true;
-    latex.enable = true;
+    latex.enable = false;
     virtualisation.enable = true;
     yggdrasil-client.enable = true;
   };
@@ -37,4 +37,3 @@ in {
 
   system.stateVersion = "23.05";
 }
-
