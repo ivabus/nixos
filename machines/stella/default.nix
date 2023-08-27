@@ -21,6 +21,8 @@ in {
     gaming.enable = true;
     graphical.enable = true;
     latex.enable = false;
+    media-client.enable = true;
+    torrent.enable = true;
     virtualisation.enable = true;
     yggdrasil-client.enable = true;
   };

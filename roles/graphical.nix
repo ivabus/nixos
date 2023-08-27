@@ -17,6 +17,7 @@ in {
       usbmuxd
       keepassxc
     ];
+    # When adding pkgs prefer GTK over Qt, because Qt bad GTK good
 
     services.greetd = {
       enable = true;
