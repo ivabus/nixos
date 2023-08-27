@@ -35,3 +35,9 @@ I install my dotfiles with prepared script
 ```shell
 curl https://iva.bz/nix | sh
 ```
+
+## Copyright
+
+This configuration is [MIT licensed](./LICENSE).
+
+I used [delroth/infra.delroth.net](https://github.com/delroth/infra.delroth.net) (MIT license) as a reference for my configuration.
