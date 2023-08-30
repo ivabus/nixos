@@ -57,3 +57,10 @@ curl https://iva.bz/nix | sh
 - Setup services (which I host)
 - Setup "secret" roles (I need them)
 - Setup router
+
+## Copyright
+
+This configuration is [MIT licensed](./LICENSE).
+
+I used [delroth/infra.delroth.net](https://github.com/delroth/infra.delroth.net) (MIT license) as a reference for my configuration.
+
