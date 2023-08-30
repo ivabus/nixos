@@ -52,7 +52,7 @@ in rec {
       enable = true;
       userName = "Ivan Bushchik";
       userEmail = "ivabus@ivabus.dev";
-      signing.key = "DF1D910360471F0CCF076E449F6DDABE11A2674D";
+      signing.key = "2F16FBF3262E090C";
       signing.signByDefault = true;
       package = pkgs.gitAndTools.gitFull;
     };
