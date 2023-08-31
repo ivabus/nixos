@@ -10,6 +10,14 @@ nixos-generate-config --show-hardware-config --root /mnt > /mnt/etc/nixos/machin
 nixos-install --flake path:.#host
 ```
 
+### Raspberry Pi image generation
+
+Replace `{{REPO_PATH}}` with path to this repo (surprising, isn't it) and run on NixOS system (or system with Nix (don't tested))
+
+```bash
+nix build path:{{REPO_PATH}}#nixosConfigurations.rubusidaeus.config.system.build.sdImage
+```
+
 ## Rebuilding
 
 ```shell
@@ -23,6 +31,7 @@ Apple Silicon hosts require additional `--impure` flag for firmware installation
 - stella (Random Ryzen 3 3250U laptop)
 - vetus (iMac 27" 2017)
 - celerrime (MacBook Air M2)
+- rubusidaeus (Raspberry Pi 4B)
 
 ## Modules
 
