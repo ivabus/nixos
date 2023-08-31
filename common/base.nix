@@ -9,6 +9,13 @@
     settings = {
       auto-optimise-store = true;
       trusted-users = [ "root" "@wheel" ];
+      substituters = [
+        "https://binarycache.ivabus.dev/public" # Yep, only public one here :)
+	"https://cache.nixos.org"
+      ];
+      trusted-public-keys = [
+        "public:9k8+78y5+1rICy+9e4raIiLP/dKDEvm9dyjj27vPS04="
+      ];
     };
     gc = {
       automatic = true;

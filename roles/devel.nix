@@ -25,6 +25,7 @@ in {
     }
     # Architecture-specific packages and configuration
     (lib.mkIf (!pkgs.stdenv.isAarch64) {boot.binfmt.emulatedSystems = [ "aarch64-linux" ];})
+    (lib.mkIf (!pkgs.stdenv.isAarch32) {boot.binfmt.emulatedSystems = [ "armv6l-linux" ];})
     (lib.mkIf (!pkgs.stdenv.isx86_64) {boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" ];})
     # Remove CLion from builds while I'm semi-online
     # Install CLion only if we are on x86_64

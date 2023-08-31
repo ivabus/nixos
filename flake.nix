@@ -41,6 +41,16 @@
       ];
     };
 
+    # Raspberry Pi 4B 2GB RAM
+    nixosConfigurations."rubusidaeus" = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          home-manager.nixosModules.home-manager
+          ./machines/rubusidaeus
+        ];
+    };
+
     /* These machines will be configured later. */
     /*
     # Effundam = MacBook Air M1 (server usage). Will not be added to flake.nix until thunderbolt and apfs proper support

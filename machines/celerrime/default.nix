@@ -7,7 +7,7 @@ in {
     ./hardware.nix
     my.modules
   ];
-  
+
   networking.hostName = "celerrime";
 
   boot.loader.systemd-boot.enable = true;

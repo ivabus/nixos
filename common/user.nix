@@ -16,6 +16,7 @@ in rec {
       cargo
       rustc
       neofetch # I use NixOS BTW
+      duf
       htop
     ];
     shell = pkgs.zsh;
