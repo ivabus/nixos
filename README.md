@@ -15,7 +15,7 @@ nixos-install --flake path:.#host
 Replace `{{REPO_PATH}}` with path to this repo (surprising, isn't it) and run on NixOS system (or system with Nix (don't tested))
 
 ```bash
-nix build path:{{REPO_PATH}}#nixosConfigurations.rubusidaeus.config.system.build.sdImage
+nix build path:{{REPO_PATH}}#nixosConfigurations.HOST.config.system.build.sdImage
 ```
 
 ## Rebuilding
