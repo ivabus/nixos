@@ -17,6 +17,7 @@ in {
 
   # All "my" options
   my.laptop.enable = true;
+  my.git.enable = true;
   my.roles = {
     design.enable = true;
     devel.enable = true;

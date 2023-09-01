@@ -15,6 +15,7 @@ in {
   networking.hostName = "vetus";
 
   my.laptop.enable = false;
+  my.git.enable = true;
   my.roles = {
     design.enable = true;
     devel.enable = true;

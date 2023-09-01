@@ -1,6 +1,7 @@
 {
   imports = [
     ./base.nix
+    ./git.nix
     ./laptop.nix
     ./locale.nix
     ./networking.nix

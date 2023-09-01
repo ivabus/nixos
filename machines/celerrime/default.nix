@@ -16,6 +16,7 @@ in {
   boot.kernelParams = [ "apple_dcp.show_notch=1" ];
 
   my.laptop.enable = true;
+  my.git.enable = true;
   my.roles = {
     design.enable = true;
     devel.enable = true;
