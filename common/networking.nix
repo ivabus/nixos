@@ -36,7 +36,7 @@
     };
   };
 
-  services.timesyncd.enable = true;
+  services.chrony.enable = true;
   networking.timeServers = [ "ntp1.vniiftri.ru" "0.ru.pool.ntp.org" "0.pool.ntp.org" ];
 
   # Useful tools

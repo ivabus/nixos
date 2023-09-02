@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  secrets = import ../secrets.nix;
+  my = import ../.;
 in rec {
   users.mutableUsers = false;
 
@@ -30,7 +30,7 @@ in rec {
       # Celerrime
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCgZJjP2BRycxcR53sriaityzT24f+umMO8iz/xUvWRUJpgwA4WJyqgKwxuIhKYPUZ7e3H/vVPrt3ZqAaqoFM7OildtcXyRskwinuAxE6lhOEE69s1M3iqCXbrTM9YluMlrvf7yd4edInH0jdlCTwuZOY+yisrGU+nOpSSuJgcwlme2fv1pQtKgTQpqz1GflIaXm5415Do4okanNlfuAJXix7ic0PkaLN0gTtONqwJR1W3hkF8hnlHV49t8QvrJHgQptbVdDgd9f96+a6OL6y/6rixnEU23yuC29lWxSwrixwC0xY+/CjhMlDzXqvePG55vC4K5UQypKcvMOCLV/0z9s5m0ca5mvS9eqPDcUj2+9r7VFaL0IdZl4i7eG9JJSS4h/22Or7CdU9Dv0kiMYP3HLiihjS/lrQVEEYpEMr3DmhSnij5DeGZFmMRM2UN5ZqR7/QhkslhQg340ik6ZENjpxuQ9rQino5XRK52DoUiLHleKI/ibBHQ4LiREvX9muyM= ivabus@celerrime"
     ];
-    hashedPassword = secrets.hashed-password;
+    hashedPassword = my.secrets.hashed-password;
   };
 
 

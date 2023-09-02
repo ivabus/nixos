@@ -20,6 +20,7 @@ in {
     graphical.enable = false;
     latex.enable = false;
     media-client.enable = false;
+    ntp-server.enable = true;
     torrent.enable = false;
     virtualisation.enable = false;
     yggdrasil-client.enable = true;
