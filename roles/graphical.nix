@@ -60,7 +60,6 @@ in {
       alsa.enable = true;
       pulse.enable = true;
       alsa.support32Bit = true;
-      jack.enable = true;
     };
 
     qt = {
