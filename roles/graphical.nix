@@ -85,7 +85,7 @@ in {
       roboto-mono
       kochi-substitute
     ];
-
+    environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Enable wayland for electron
     home-manager.users.ivabus = {
       gtk = {
         enable = true;

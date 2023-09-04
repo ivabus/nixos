@@ -15,6 +15,7 @@ in {
       wineWowPackages.staging
       winetricks
       wineWowPackages.waylandFull
+      (retroarch.override { cores = with libretro; [ np2kai ];})
     ];
   }
   # Enable steam only on x86_64 (since I have hosts with ARM, but I don't think I will enable my.roles.gaming on ARM system soon)

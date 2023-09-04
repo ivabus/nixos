@@ -21,6 +21,7 @@ in {
         ninja
         picocom
         screen
+        hyperfine
       ];
     }
     # Architecture-specific packages and configuration

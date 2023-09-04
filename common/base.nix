@@ -30,7 +30,7 @@
     curl
     usbutils
     pciutils
-    coreutils-full
+    (uutils-coreutils.override { prefix = ""; })
     killall
     git
     git-crypt
