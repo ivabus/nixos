@@ -64,6 +64,9 @@ curl https://iva.bz/nix | sh
 ## TODO
 
 - Setup services (which I host)
+  - [x] ivabus.dev
+  - [ ] iva.bz
+  - [ ] ивабус.рф
 - Setup "secret" roles (I need them)
 - Setup router
 

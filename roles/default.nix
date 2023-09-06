@@ -10,5 +10,8 @@
     ./torrent.nix
     ./virtualisation.nix
     ./yggdrasil-client.nix
+
+    ./server/nginx.nix
+    ./server/ivabus-dev.nix
   ];
 }
