@@ -4,7 +4,7 @@
 
 Setup disks, mount root to `/mnt` and `/boot` to `/mnt/boot` and run something like this
 
-```shell
+```
 git clone https://github.com/ivabus/nixos /mnt/etc/nixos
 nixos-generate-config --show-hardware-config --root /mnt > /mnt/etc/nixos/machines/host/hardware.nix
 nixos-install --flake path:.#host
@@ -14,7 +14,7 @@ nixos-install --flake path:.#host
 
 Replace `{{REPO_PATH}}` with path to this repo (surprising, isn't it) and run on NixOS system (or system with Nix (don't tested))
 
-```bash
+```
 nix build path:{{REPO_PATH}}#nixosConfigurations.HOST.config.system.build.sdImage
 ```
 
@@ -40,7 +40,7 @@ Module example:
 { config, lib, ... }:
 
 let
-    cfg = config.my.MODULE;
+  cfg = config.my.MODULE;
 in {
   options.my.MODULE.enable = lib.mkEnableOption "Enable MODULE";
   config = lib.mkIf (cfg.enable) {
@@ -57,7 +57,7 @@ I "made" some shell in [shells/](./shells).
 
 I install my dotfiles with prepared script
 
-```shell
+```
 curl https://iva.bz/nix | sh
 ```
 
