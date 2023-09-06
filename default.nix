@@ -3,10 +3,5 @@ rec {
   roles = import ./roles;
   secrets = import ./secrets.nix;
 
-  modules = { pkgs, ... }: {
-    imports = [
-      common
-      roles
-    ];
-  };
+  modules = { pkgs, ... }: { imports = [ common roles ]; };
 }

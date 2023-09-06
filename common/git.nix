@@ -1,11 +1,8 @@
 { config, pkgs, lib, ... }:
 
-let
-  cfg = config.my.git;
+let cfg = config.my.git;
 in {
-  options = {
-    my.git.enable = lib.mkEnableOption "Enable git configuration";
-  };
+  options = { my.git.enable = lib.mkEnableOption "Enable git configuration"; };
 
   config = lib.mkIf (cfg.enable) {
     home-manager.useGlobalPkgs = true;

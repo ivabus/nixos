@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  my = import ../.;
+let my = import ../.;
 in rec {
   users.mutableUsers = false;
 
@@ -33,15 +32,13 @@ in rec {
     hashedPassword = my.secrets.hashed-password;
   };
 
-
   users.users.root = {
     hashedPassword = null;
-    openssh.authorizedKeys.keys = users.users.ivabus.openssh.authorizedKeys.keys;
+    openssh.authorizedKeys.keys =
+      users.users.ivabus.openssh.authorizedKeys.keys;
   };
 
-  programs.zsh = {
-    enable = true;
-  };
+  programs.zsh = { enable = true; };
 
   programs.gnupg.agent.enable = true;
   programs.ssh.startAgent = true;

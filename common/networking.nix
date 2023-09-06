@@ -16,10 +16,8 @@
   };
 
   # Used by systemd-resolved, not directly by resolv.conf.
-  networking.nameservers = [
-    "8.8.8.8#dns.google"
-    "1.0.0.1#cloudflare-dns.com"
-  ];
+  networking.nameservers =
+    [ "8.8.8.8#dns.google" "1.0.0.1#cloudflare-dns.com" ];
 
   networking.enableIPv6 = true;
 
@@ -37,7 +35,8 @@
   };
 
   services.chrony.enable = true;
-  networking.timeServers = [ "ntp1.vniiftri.ru" "0.ru.pool.ntp.org" "0.pool.ntp.org" ];
+  networking.timeServers =
+    [ "ntp1.vniiftri.ru" "0.ru.pool.ntp.org" "0.pool.ntp.org" ];
 
   # Useful tools
   boot.kernelModules = [ "af_packet" ];

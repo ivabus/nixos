@@ -1,8 +1,6 @@
-
 { config, pkgs, lib, ... }:
 
-let
-  my = import ../..;
+let my = import ../..;
 in {
   imports = [
     ./hardware.nix # Use nixos-generate-config --show-hardware-config > /etc/nixos/machines/MACHINE/hardware.nix

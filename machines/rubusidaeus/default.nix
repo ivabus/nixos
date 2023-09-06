@@ -1,13 +1,8 @@
-
 { config, pkgs, lib, ... }:
 
-let
-  my = import ../..;
+let my = import ../..;
 in {
-  imports = [
-    my.modules
-    ../../hardware/rpi4.nix
-  ];
+  imports = [ my.modules ../../hardware/rpi4.nix ];
 
   networking.hostName = "rubusidaeus";
 

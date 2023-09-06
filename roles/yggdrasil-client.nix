@@ -1,9 +1,9 @@
 { config, lib, ... }:
 
-let
-  cfg = config.my.roles.yggdrasil-client;
+let cfg = config.my.roles.yggdrasil-client;
 in {
-  options.my.roles.yggdrasil-client.enable = lib.mkEnableOption "Enable yggdrasil";
+  options.my.roles.yggdrasil-client.enable =
+    lib.mkEnableOption "Enable yggdrasil";
   config = lib.mkIf (cfg.enable) {
     services.yggdrasil = {
       enable = true;

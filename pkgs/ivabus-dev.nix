@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {}, bundlerEnv, ... }:
+{ pkgs ? import <nixpkgs> { }, bundlerEnv, ... }:
 let
   version = "130812885aee9f2e0a5f6a4b534a3b6b68431554";
   repo = builtins.fetchGit {

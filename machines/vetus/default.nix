@@ -1,13 +1,8 @@
-
 { config, pkgs, ... }:
 
-let
-  my = import ../..;
+let my = import ../..;
 in {
-  imports = [
-    ./hardware.nix
-    my.modules
-  ];
+  imports = [ ./hardware.nix my.modules ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -28,9 +23,9 @@ in {
 
   networking.useDHCP = true;
 
-  services.xserver.videoDrivers=["amdgpu"];
-  boot.initrd.kernelModules=["amdgpu"];
-  
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   system.stateVersion = "23.05";
 }
 

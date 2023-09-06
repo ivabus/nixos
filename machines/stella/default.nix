@@ -1,13 +1,8 @@
-
 { config, pkgs, lib, ... }:
 
-let
-  my = import ../..;
+let my = import ../..;
 in {
-  imports = [
-    ./hardware.nix
-    my.modules
-  ];
+  imports = [ ./hardware.nix my.modules ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -28,8 +23,8 @@ in {
     yggdrasil-client.enable = true;
   };
 
-  services.xserver.videoDrivers=["amdgpu"];
-  boot.initrd.kernelModules=["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   powerManagement = {
     enable = true;

@@ -1,12 +1,8 @@
 { config, pkgs, ... }:
 
-let
-  my = import ../..;
+let my = import ../..;
 in {
-  imports = [
-    ./hardware.nix
-    my.modules
-  ];
+  imports = [ ./hardware.nix my.modules ];
 
   networking.hostName = "celerrime";
 
@@ -28,9 +24,7 @@ in {
     virtualisation.enable = false;
     yggdrasil-client.enable = true;
 
-    server = {
-      ivabus-dev.enable = true;
-    };
+    server = { ivabus-dev.enable = true; };
   };
 
   networking.useDHCP = true;
@@ -40,9 +34,8 @@ in {
   hardware.asahi.addEdgeKernelConfig = true;
   hardware.asahi.useExperimentalGPUDriver = true;
 
-  environment.systemPackages = with pkgs; [
-    (retroarch.override { cores = with libretro; [ np2kai ];})
-  ];
+  environment.systemPackages = with pkgs;
+    [ (retroarch.override { cores = with libretro; [ np2kai ]; }) ];
 
   system.stateVersion = "23.05";
 }

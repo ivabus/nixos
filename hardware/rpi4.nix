@@ -1,10 +1,11 @@
-
 { config, pkgs, lib, ... }:
 
 let
   overlay = final: super: {
     makeModulesClosure = x:
-      super.makeModulesClosure (x // { allowMissing = true; }); # Ignores missing kernel modules (can't build image without this fix)
+      super.makeModulesClosure (x // {
+        allowMissing = true;
+      }); # Ignores missing kernel modules (can't build image without this fix)
   };
 in {
 
