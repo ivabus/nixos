@@ -24,7 +24,7 @@ in {
     virtualisation.enable = false;
     yggdrasil-client.enable = true;
 
-    server = { ivabus-dev.enable = true; };
+    server = { ivabus-dev.enable = false; };
   };
 
   networking.useDHCP = true;

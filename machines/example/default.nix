@@ -26,6 +26,8 @@ in {
     torrent.enable = true;
     virtualisation.enable = true;
     yggdrasil-client.enable = true;
+
+    server = { ivabus-dev.enable = true; };
   };
 
   networking.useDHCP = true;

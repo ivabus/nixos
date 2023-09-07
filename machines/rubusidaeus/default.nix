@@ -15,7 +15,7 @@ in {
     graphical.enable = false;
     latex.enable = false;
     media-client.enable = false;
-    ntp-server.enable = true;
+    ntp-server.enable = false;
     torrent.enable = false;
     virtualisation.enable = false;
     yggdrasil-client.enable = true;

@@ -12,5 +12,11 @@ in {
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
     };
+
+    security.acme = {
+      acceptTerms = true;
+      defaults.email = "ivabus@ivabus.dev";
+    };
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
   };
 }

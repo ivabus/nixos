@@ -7,7 +7,9 @@ in {
     my.roles.server.nginx.enable = true;
     services.nginx = {
       virtualHosts."ivabus.dev" = {
-        # i don't want to call package like this
+        forceSSL = true;
+        enableACME = true;
+
         root = pkgs.callPackage ../../pkgs/ivabus-dev.nix { };
 
         extraConfig = ''
