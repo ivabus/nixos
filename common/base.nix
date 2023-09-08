@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   nix = {
@@ -8,35 +8,29 @@
     '';
     settings = {
       auto-optimise-store = true;
+      allowed-users = [ "root" "@wheel" ];
       trusted-users = [ "root" "@wheel" ];
+      sandbox = true;
     };
     gc = {
       automatic = true;
       options = "--delete-older-than 7d";
     };
-    daemonCPUSchedPolicy = "idle";
-    daemonIOSchedClass = "idle";
   };
 
   documentation = {
     doc.enable = false;
     info.enable = false;
     man.enable = true;
-    nixos.enable = false;
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    curl
-    usbutils
-    pciutils
-    coreutils-full
-    killall
-    git
-    git-crypt
-    neovim
-    python3Minimal
-  ];
+  environment.systemPackages = with pkgs;
+    [ wget curl git git-crypt neovim python3Minimal nixfmt ]
+    ++ lib.optionals pkgs.stdenv.isLinux [
+      usbutils
+      pciutils
+      coreutils-full
+      killall
+    ];
 
-  boot.tmp.cleanOnBoot = true;
 }

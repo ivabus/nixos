@@ -4,15 +4,22 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, apple-silicon-support, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nix-darwin, apple-silicon-support
+    , ... }@inputs: {
       # Stella = Unchartevice 6540 (Ryzen 3 3250U, 16GB RAM)
       nixosConfigurations."stella" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -43,6 +50,13 @@
           home-manager.nixosModules.home-manager
           ./machines/rubusidaeus
         ];
+      };
+
+      # Celerrime under macOS
+      darwinConfigurations."celerrime-x" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules =
+          [ home-manager.darwinModules.home-manager ./machines/celerrime-x ];
       };
 
       # These machines will be configured later.

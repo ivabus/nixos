@@ -31,7 +31,9 @@ Apple Silicon hosts require additional `--impure` flag for firmware installation
 - stella (Random Ryzen 3 3250U laptop)
 - vetus (iMac 27" 2017)
 - celerrime (MacBook Air M2)
+- celerrime-x (MacBook Air M2 under Darwin) (Needs unifying)
 - rubusidaeus (Raspberry Pi 4B)
+
 
 ## Modules
 

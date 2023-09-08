@@ -1,6 +1,7 @@
-{ ... }:
+{ cfg, lib, ... }:
 
-{
+let my = import ../.;
+in {
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
@@ -14,4 +15,5 @@
 
     '';
   };
+  programs.ssh.startAgent = true;
 }
