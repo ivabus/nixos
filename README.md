@@ -6,8 +6,8 @@ Setup disks, mount root to `/mnt` and `/boot` to `/mnt/boot` and run something l
 
 ```
 git clone https://github.com/ivabus/nixos /mnt/etc/nixos
-nixos-generate-config --show-hardware-config --root /mnt > /mnt/etc/nixos/machines/host/hardware.nix
-nixos-install --flake path:.#host
+nixos-generate-config --show-hardware-config --root /mnt > /mnt/etc/nixos/machines/HOST/hardware.nix
+nixos-install --flake path:.#HOST
 ```
 
 ### Raspberry Pi image generation
@@ -30,14 +30,15 @@ Apple Silicon hosts require additional `--impure` flag for firmware installation
 
 - celerrime (MacBook Air M2) (coding)
 - vetus (iMac 27" 2017) (gaming)
-- stella (Random Ryzen 3 3250U laptop) (lite websurfing client)
-- celerrime-x (MacBook Air M2 under Darwin) - Needs unifying + doesn't work - Nix daemon "bootloops"
+- stella (Random Ryzen 3 3250U laptop) (lite web surfing client)
+- celerrime-x (MacBook Air M2 under Darwin) - Needs unifying + doesn't work - Nix daemon gets in "boot loop"
 - rubusidaeus (Raspberry Pi 4B) (small services)
 - periculo (StarFive VisionFive2) (as router) - WIP + untested
 
 ## Modules
 
 Module example:
+
 ```nix
 { config, lib, ... }:
 
