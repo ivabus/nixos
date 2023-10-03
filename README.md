@@ -1,4 +1,4 @@
-# NixOS Configuration files.
+# ivabus NixOS Configuration files.
 
 ## Deploying
 
