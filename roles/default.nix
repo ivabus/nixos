@@ -6,6 +6,7 @@
     ./graphical.nix
     ./latex.nix
     ./media-client.nix # TODO: media-server
+    ./router.nix
     ./ntp-server.nix
     ./torrent.nix
     ./virtualisation.nix

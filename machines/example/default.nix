@@ -21,6 +21,7 @@ in {
     devel.enable = true;
     gaming.enable = true;
     graphical.enable = true;
+    graphical.basic.enable = false;
     latex.enable = true;
     media-client.enable = true;
     torrent.enable = true;
@@ -29,6 +30,11 @@ in {
 
     server = { ivabus-dev.enable = true; };
   };
+  my.users = {
+    ivabus.enable = true;
+    user.enable = false;
+  };
+  my.features.secrets = true;
 
   networking.useDHCP = true;
 

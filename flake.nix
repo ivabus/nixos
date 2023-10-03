@@ -12,13 +12,17 @@
 
     apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
 
+    #nixos-vf2 = { url = "path:/root/nixos-vf2"; };
+    #nixos-vf2 = { url = "github:Snektron/nixos-vf2"; };
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = { self, nixpkgs, home-manager, nix-darwin, apple-silicon-support
+    # , nixos-vf2
     , ... }@inputs: {
       # Stella = Unchartevice 6540 (Ryzen 3 3250U, 16GB RAM)
       nixosConfigurations."stella" = nixpkgs.lib.nixosSystem {
@@ -49,6 +53,17 @@
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
           home-manager.nixosModules.home-manager
           ./machines/rubusidaeus
+        ];
+      };
+
+      # VisionFive 2, 8GB - firewall + router
+      nixosConfigurations."periculo" = nixpkgs.lib.nixosSystem {
+        system = "riscv64-linux";
+        modules = [
+          #nixos-vf2.nixosModules.sdImage
+          ./hardware/vf2.nix
+          home-manager.nixosModules.home-manager
+          ./machines/periculo
         ];
       };
 

@@ -29,6 +29,13 @@ in {
     server = { ivabus-dev.enable = true; };
   };
 
+  my.users = {
+    ivabus.enable = true;
+    user.enable = false;
+  };
+
+  my.features.secrets = true;
+
   networking = {
     useNetworkd = false;
     useDHCP = false;

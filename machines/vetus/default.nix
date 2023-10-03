@@ -21,6 +21,13 @@ in {
     yggdrasil-client.enable = true;
   };
 
+  my.users = {
+    ivabus.enable = true;
+    user.enable = false;
+  };
+
+  my.features.secrets = true;
+
   networking.useDHCP = true;
 
   services.xserver.videoDrivers = [ "amdgpu" ];

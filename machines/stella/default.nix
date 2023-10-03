@@ -7,31 +7,48 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = with pkgs; [
+    google-chrome
+    zoom-us
+    whatsapp-for-linux
+    telegram-desktop
+  ];
+
   networking.hostName = "stella";
 
   my.laptop.enable = true;
   my.git.enable = true;
   my.roles = {
-    design.enable = true;
-    devel.enable = true;
-    gaming.enable = true;
-    graphical.enable = true;
+    design.enable = false;
+    devel.enable = false;
+    gaming.enable = false;
+    graphical.enable = false;
+    graphical.basic.enable = true;
     latex.enable = false;
     media-client.enable = true;
-    torrent.enable = true;
-    virtualisation.enable = true;
-    yggdrasil-client.enable = true;
+    torrent.enable = false;
+    virtualisation.enable = false;
+    yggdrasil-client.enable = false;
   };
+
+  my.users = {
+    ivabus.enable = false;
+    user.enable = true;
+  };
+
+  my.features.secrets = false;
 
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
 
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "ondemand";
+    cpuFreqGovernor = "powersave";
   };
 
-  networking.useDHCP = true;
+  # system is very slow without it
+  security.allowSimultaneousMultithreading = lib.mkForce true;
 
   system.stateVersion = "23.05";
 }

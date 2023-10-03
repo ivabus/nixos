@@ -7,13 +7,13 @@ in {
   };
 
   config = lib.mkIf (cfg.enable) {
-    networking.wireless.iwd.enable = true;
+    networking.wireless.iwd.enable = lib.mkDefault true;
     environment.systemPackages = with pkgs; [ lm_sensors ];
 
-    hardware.bluetooth.enable = true;
-    services.blueman.enable = true;
+    hardware.bluetooth.enable = lib.mkDefault true;
+    services.blueman.enable = lib.mkDefault true;
 
-    services.tlp.enable = true;
-    services.upower.enable = true;
+    services.tlp.enable = lib.mkDefault true;
+    services.upower.enable = lib.mkDefault true;
   };
 }

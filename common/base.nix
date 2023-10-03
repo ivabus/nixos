@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  my = import ../.;
+  secrets = my.secrets { inherit config; };
+in {
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
@@ -10,7 +13,7 @@
       auto-optimise-store = true;
       allowed-users = [ "root" "@wheel" ];
       trusted-users = [ "root" "@wheel" ];
-      sandbox = true;
+      #sandbox = true;
     };
     gc = {
       automatic = true;
@@ -25,12 +28,13 @@
   };
 
   environment.systemPackages = with pkgs;
-    [ wget curl git git-crypt neovim python3Minimal nixfmt ]
+    [ wget curl git git-crypt neovim python3Minimal ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       usbutils
       pciutils
-      coreutils-full
+      coreutils
       killall
     ];
-
+  # Inject secrets through module arguments while evaluating configs.
+  _module.args.secrets = secrets;
 }

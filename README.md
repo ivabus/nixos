@@ -24,16 +24,16 @@ nix build path:{{REPO_PATH}}#nixosConfigurations.HOST.config.system.build.sdImag
 nixos-rebuild switch --flake path:/etc/nixos
 ```
 
-Apple Silicon hosts require additional `--impure` flag for firmware installation. (Firmware should be placed in /etc/nixos/asahi/firmware (ignored by git)).
+Apple Silicon hosts require additional `--impure` flag for firmware installation. (Firmware should be placed in `/etc/nixos/asahi/firmware` (ignored by git)).
 
 ### Hosts configured
 
-- stella (Random Ryzen 3 3250U laptop)
-- vetus (iMac 27" 2017)
-- celerrime (MacBook Air M2)
-- celerrime-x (MacBook Air M2 under Darwin) (Needs unifying)
-- rubusidaeus (Raspberry Pi 4B)
-
+- celerrime (MacBook Air M2) (coding)
+- vetus (iMac 27" 2017) (gaming)
+- stella (Random Ryzen 3 3250U laptop) (lite websurfing client)
+- celerrime-x (MacBook Air M2 under Darwin) - Needs unifying + doesn't work - Nix daemon "bootloops"
+- rubusidaeus (Raspberry Pi 4B) (small services)
+- periculo (StarFive VisionFive2) (as router) - WIP + untested
 
 ## Modules
 
@@ -70,7 +70,7 @@ curl https://iva.bz/nix | sh
   - [ ] iva.bz
   - [ ] ивабус.рф
 - Setup "secret" roles (I need them)
-- Setup router
+- Setup router (in progress with `periculo`)
 
 ## Copyright
 
