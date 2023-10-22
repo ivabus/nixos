@@ -1,6 +1,11 @@
 { config, lib, pkgs, ... }:
 
-let cfg = config.my.roles.router;
+let
+  cfg = config.my.roles.router;
+  ipv6_subnet = "2a05:3580:e41a:d600";
+  ipv6_prefix = 64;
+  ipv4_subnet = "192.168";
+  ipv4_prefix = 24;
 in {
   options.my.roles.router.enable =
     lib.mkEnableOption "Enable router capabilities";
@@ -17,6 +22,13 @@ in {
     default = "lan0";
     description = ''
       LAN interface name.
+    '';
+  };
+  options.my.roles.router.addresses.ipv4.subnet = lib.mkOption {
+    type = lib.types.str;
+    default = "192.168";
+    description = ''
+      IPv4 subnet to allocate (currently only with /24 mask)
     '';
   };
 
@@ -57,12 +69,30 @@ in {
         '';
       };
     };
+
     networking = {
+      useNetworkd = false;
+      useDHCP = false;
+      interfaces = {
+        "${cfg.interfaces.lan}" = {
+          ipv4.addresses = [
+            {
+              address = "${ipv4_subnet}.0.1";
+              prefixLength = 24;
+            }
+            {
+              address = "${ipv4_subnet}.1.1";
+              prefixLength = 24;
+            }
+          ];
+        };
+        "${cfg.interfaces.wan}".useDHCP = true;
+      };
       nat = {
         enable = true;
         externalInterface = "${cfg.interfaces.wan}";
         internalInterfaces = [ "${cfg.interfaces.lan}" ];
-        internalIPs = [ "192.168.0.0/24" "192.168.1.0" /24 ];
+        internalIPs = [ "192.168.0.0/24" "192.168.1.0/24" ];
       };
     };
   };
