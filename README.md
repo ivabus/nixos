@@ -68,10 +68,11 @@ curl https://iva.bz/nix | sh
 
 - Setup services (which I host)
   - [x] ivabus.dev
-  - [ ] iva.bz
-  - [ ] ивабус.рф
+  - [x] iva.bz (proxying not-Nix env)
+  - [x] ивабус.рф (proxying not-Nix env)
 - Setup "secret" roles (I need them)
 - Setup router (in progress with `periculo`)
+- Setup dotfiles properly with home-manager
 
 ## Copyright
 

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, secrets, ... }:
 
 let
   my = import ../..;
@@ -53,6 +53,23 @@ in {
     };
     defaultGateway = ipv4_gateway; # should set this things through let...
   };
+
+  # Semi-static configuration, needs rethinking
+  services.nginx = {
+    virtualHosts."iva.bz" = {
+      locations."/".proxyPass = "http://${secrets.maas-address}:8081";
+      enableACME = true;
+      addSSL = true;
+      serverAliases = [ "www.iva.bz" ];
+    };
+    virtualHosts."xn--80acbx2cl.xn--p1ai" = {
+      locations."/".proxyPass = "http://${secrets.maas-address}:8083";
+      enableACME = true;
+      addSSL = true;
+      serverAliases = [ "ивабус.рф" ];
+    };
+  };
+
 
   hardware.enableRedistributableFirmware = true;
   system.stateVersion = "23.05";

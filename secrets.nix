@@ -7,4 +7,5 @@ in if (canaryHash != expectedHash && config.my.features.secrets) then
   abort "Secrets are enabled and not readable. Have you run `git-crypt unlock`?"
 else {
   hashed-password = builtins.readFile ./secrets/hashed-password;
+  maas-address = builtins.readFile ./secrets/maas-address;
 }
