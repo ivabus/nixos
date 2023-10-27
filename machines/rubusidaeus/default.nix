@@ -68,6 +68,11 @@ in {
       addSSL = true;
       serverAliases = [ "ивабус.рф" ];
     };
+    virtualHosts."music.ivabus.dev" = {
+      locations."/".proxyPass = "http://${secrets.maas-address}:4533";
+      enableACME = true;
+      forceSSL = true;
+    };
   };
 
 
