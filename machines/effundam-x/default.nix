@@ -5,32 +5,24 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neofetch
-
-    vscode
-    rustc
-    cargo
-    clang
-    llvm
-    lld
-    python3Full
-    gnumake
-    automake
-    autoconf
-    meson
-    ninja
-    picocom
-    screen
-    hyperfine
   ];
+
   security.pam.enableSudoTouchIdAuth = true;
 
   networking = {
-    dns = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
-    knownNetworkServices = [ "USB 10/100/1000 LAN" "Wi-Fi" "iPhone USB" ];
-
-    hostName = "celerrime-x"; # ugly
-    computerName = "cellerime on X"; # pretty
+    hostName = "effundam-x"; # ugly
+    computerName = "effundam on X"; # pretty
   };
+
+  /*
+  services.navidrome = {
+    enable = true;
+    settings = {
+      Port = 4544;
+      Address = "0.0.0.0";
+      MusicFolder = "/Users/ivabus/Music";
+    };
+  };*/
 
   environment.shells = with pkgs; [ zsh ];
   programs.zsh = {
@@ -52,7 +44,6 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+
   services.nix-daemon.enable = true;
-  nix.package = lib.mkForce pkgs.nix;
-  nix.settings.sandbox = lib.mkForce false;
 }

@@ -73,6 +73,16 @@ in {
       enableACME = true;
       forceSSL = true;
     };
+    virtualHosts."storage.ivabus.dev" = {
+      locations."/".proxyPass = "http://${secrets.maas-address}:80";
+      enableACME = true;
+      forceSSL = true;
+    };
+    virtualHosts."git.ivabus.dev" = {
+      locations."/".proxyPass = "http://${secrets.maas-address}:3000";
+      enableACME = true;
+      forceSSL = true;
+    };
   };
 
 

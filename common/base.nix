@@ -10,10 +10,7 @@ in {
       experimental-features = nix-command flakes
     '';
     settings = {
-      auto-optimise-store = true;
-      allowed-users = [ "root" "@wheel" ];
-      trusted-users = [ "root" "@wheel" ];
-      #sandbox = true;
+      sandbox = true;
     };
     gc = {
       automatic = true;
@@ -27,14 +24,15 @@ in {
     man.enable = true;
   };
 
-  environment.systemPackages = with pkgs;
+  # mkDefaulting due to python3Minimal and python3Full collision
+  environment.systemPackages = lib.mkDefault (with pkgs;
     [ wget curl git git-crypt neovim python3Minimal ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       usbutils
       pciutils
       coreutils
       killall
-    ];
+    ]);
   # Inject secrets through module arguments while evaluating configs.
   _module.args.secrets = secrets;
 }

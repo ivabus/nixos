@@ -74,6 +74,13 @@
           [ home-manager.darwinModules.home-manager ./machines/celerrime-x ];
       };
 
+      # effundam (Macbook as a Server for a little while) under macOS
+      darwinConfigurations."effundam-x" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules =
+          [ home-manager.darwinModules.home-manager ./machines/effundam-x ];
+      };
+
       # These machines will be configured later.
       /* # Effundam = MacBook Air M1 (server usage). Will not be added to flake.nix until thunderbolt and apfs proper support
          nixosConfigurations."effundam" = nixpkgs.lib.nixosSystem {

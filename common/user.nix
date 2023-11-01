@@ -1,4 +1,4 @@
-{ config, pkgs, lib, secrets, ... }:
+{ config, pkgs, lib, secrets, home-manager, ... }:
 
 let
   cfg = config.my.users;
@@ -35,6 +35,9 @@ in rec {
         hashedPassword = secrets.hashed-password;
       };
       programs.gnupg.agent.enable = true;
+      home-manager.users.ivabus = {
+        
+      };
     })
 
     (lib.mkIf (cfg.user.enable) {
