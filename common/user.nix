@@ -35,9 +35,6 @@ in rec {
         hashedPassword = secrets.hashed-password;
       };
       programs.gnupg.agent.enable = true;
-      home-manager.users.ivabus = {
-        
-      };
     })
 
     (lib.mkIf (cfg.user.enable) {
