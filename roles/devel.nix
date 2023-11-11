@@ -14,7 +14,6 @@ in {
         clang
         llvm
         lld
-        python3Full
         gnumake
         automake
         autoconf
@@ -35,9 +34,6 @@ in {
     })
     (lib.mkIf (!pkgs.stdenv.isx86_64) {
       boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" ];
-    })
-    (lib.mkIf (builtins.currentSystem != "riscv64-linux") {
-      boot.binfmt.emulatedSystems = [ "riscv64-linux" ];
     })
 
     /* # Install CLion only if we are on x86_64

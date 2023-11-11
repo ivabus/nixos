@@ -24,15 +24,14 @@ in {
     man.enable = true;
   };
 
-  # mkDefaulting due to python3Minimal and python3Full collision
-  environment.systemPackages = lib.mkDefault (with pkgs;
-    [ wget curl git git-crypt neovim python3Minimal ]
+  environment.systemPackages = with pkgs;
+    [ wget curl git git-crypt neovim python3Full ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       usbutils
       pciutils
       coreutils
       killall
-    ]);
+    ];
   # Inject secrets through module arguments while evaluating configs.
   _module.args.secrets = secrets;
 }
