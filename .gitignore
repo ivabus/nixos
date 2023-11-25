@@ -1,3 +1,4 @@
 asahi*
 .key
 *.DS_Store
+flake.lock
