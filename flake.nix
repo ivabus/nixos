@@ -6,7 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -14,11 +14,6 @@
 
     #nixos-vf2 = { url = "path:/root/nixos-vf2"; };
     #nixos-vf2 = { url = "github:Snektron/nixos-vf2"; };
-
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, nix-darwin, apple-silicon-support
@@ -46,6 +41,12 @@
         ];
       };
 
+      # cursor = vm for "running" linux programs on aarch64
+      nixosConfigurations."cursor" = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [ home-manager.nixosModules.home-manager ./machines/cursor ];
+      };
+
       # Raspberry Pi 4B 2GB RAM
       nixosConfigurations."rubusidaeus" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
@@ -65,20 +66,6 @@
           home-manager.nixosModules.home-manager
           ./machines/periculo
         ];
-      };
-
-      # Celerrime under macOS
-      darwinConfigurations."celerrime-x" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules =
-          [ home-manager.darwinModules.home-manager ./machines/celerrime-x ];
-      };
-
-      # effundam (Macbook as a Server for a little while) under macOS
-      darwinConfigurations."effundam-x" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules =
-          [ home-manager.darwinModules.home-manager ./machines/effundam-x ];
       };
 
       # These machines will be configured later.

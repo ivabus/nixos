@@ -3,11 +3,8 @@
 let
   cfg = config.my.users;
   keys = [
-    # celerrime-x
-    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6HY6er37FUz2tPQnwq5SUQZ5KHmMpGQA5yNlxPOyoCV+uvdx/cU8KF7jlFoyBC9xf2FvNyB8H1MZ6t2eUs4m/pVMpoBbNSTZLSxlvv2n4HuxL2Sg3qPdioJOyxDfnXA4OIZ+Tc+z4zM3ZnPJm1ccGW7W+YPhZ7GhBpl5wlMw+m06dCt8wfdDA4fuf4brnLt1ZMs4aOtVM8u4ZEtMs3IVXVUgtRH5m0RXZ94s7RkrUHhl2UOkOclhkQOiQop9RuJMjpi+iYkDYCniuGCKcKPrmi1+qicKM8KyrYGqR7FkUvzr+H8XtJXu++Kvmjcn54jDYqM4sq/MNL2rf8QaIUGLwiq2ljH2dGamElvElWZoXQBGPp4L80IEbaMVISIcvcNj+8cKW3rPvEUK5iT8jCkIOUwm1oo70YawS5VXTPLDsZif12QduTcJhVJekEaP0ZSifO52zeJksj0adwiEMJPqm7bIk5Y+9dCbQH7PtkWY4Tw3bdGNsYnTXC80MeEfrIKE= ivabus@celerrime-x"
-
     # Celerrime
-    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCgZJjP2BRycxcR53sriaityzT24f+umMO8iz/xUvWRUJpgwA4WJyqgKwxuIhKYPUZ7e3H/vVPrt3ZqAaqoFM7OildtcXyRskwinuAxE6lhOEE69s1M3iqCXbrTM9YluMlrvf7yd4edInH0jdlCTwuZOY+yisrGU+nOpSSuJgcwlme2fv1pQtKgTQpqz1GflIaXm5415Do4okanNlfuAJXix7ic0PkaLN0gTtONqwJR1W3hkF8hnlHV49t8QvrJHgQptbVdDgd9f96+a6OL6y/6rixnEU23yuC29lWxSwrixwC0xY+/CjhMlDzXqvePG55vC4K5UQypKcvMOCLV/0z9s5m0ca5mvS9eqPDcUj2+9r7VFaL0IdZl4i7eG9JJSS4h/22Or7CdU9Dv0kiMYP3HLiihjS/lrQVEEYpEMr3DmhSnij5DeGZFmMRM2UN5ZqR7/QhkslhQg340ik6ZENjpxuQ9rQino5XRK52DoUiLHleKI/ibBHQ4LiREvX9muyM= ivabus@celerrime"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0GX4/09I5B7nVeU3EKw58VyKNsbwpi4KzuJrgpoVfR ivabus@celerrime-x"
   ];
 in rec {
   options.my.users = {

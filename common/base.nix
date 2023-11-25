@@ -11,6 +11,8 @@ in {
     '';
     settings = {
       sandbox = true;
+      trusted-users = [ "root" "ivabus" ];
+      allowed-users = [ "root" "ivabus" ];
     };
     gc = {
       automatic = true;
@@ -22,16 +24,21 @@ in {
     doc.enable = false;
     info.enable = false;
     man.enable = true;
+    nixos.enable = false;
   };
 
-  environment.systemPackages = with pkgs;
-    [ wget curl git git-crypt neovim python3Full ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
-      usbutils
-      pciutils
-      coreutils
-      killall
-    ];
+  environment.systemPackages = with pkgs; [
+    wget
+    curl
+    git
+    git-crypt
+    neovim
+    python3
+    usbutils
+    pciutils
+    coreutils
+    killall
+  ];
   # Inject secrets through module arguments while evaluating configs.
   _module.args.secrets = secrets;
 }

@@ -31,7 +31,6 @@ Apple Silicon hosts require additional `--impure` flag for firmware installation
 - celerrime (MacBook Air M2) (coding)
 - vetus (iMac 27" 2017) (gaming)
 - stella (Random Ryzen 3 3250U laptop) (lite web surfing client)
-- celerrime-x (MacBook Air M2 under Darwin) - Needs unifying + doesn't work - Nix daemon gets in "boot loop"
 - rubusidaeus (Raspberry Pi 4B) (small services)
 - periculo (StarFive VisionFive2) (as router) - WIP + untested
 
@@ -71,7 +70,7 @@ curl https://iva.bz/nix | sh
   - [x] iva.bz (proxying not-Nix env)
   - [x] ивабус.рф (proxying not-Nix env)
 - Setup "secret" roles (I need them)
-- Setup router (in progress with `periculo`)
+- Setup router (in progress with `periculo`, aughhhhhhhhh it seems like I need to crosscompile it for 30 days straight, so no fast progress)
 - Setup dotfiles properly with home-manager
 
 ## Copyright
