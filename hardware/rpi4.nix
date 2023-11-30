@@ -12,6 +12,7 @@ in {
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+    supportedFilesystems = lib.mkForce [ "ext4" "vfat" ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
