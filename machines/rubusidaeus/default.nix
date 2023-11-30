@@ -19,6 +19,7 @@ in {
     devel.enable = false;
     gaming.enable = false;
     graphical.enable = false;
+    graphical.basic.enable = false;
     latex.enable = false;
     media-client.enable = false;
     ntp-server.enable = false;
