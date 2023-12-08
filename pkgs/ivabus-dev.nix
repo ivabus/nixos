@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { }, bundlerEnv, ... }:
 let
-  version = "da0f23bc81217b6cca1c0cae07670991dd4c6da2";
+  version = "f3ccd002971613d04486f17f9fcbb1cb03ef7c70";
   repo = builtins.fetchGit {
     url = "https://github.com/ivabus/website";
     rev = version;
