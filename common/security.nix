@@ -19,6 +19,9 @@
   boot.kernel.sysctl = {
     "kernel.sysrq" = 0;
 
+    # Yo, WTF?
+    "net.ipv4.ping_group_range" = "0 1000";
+
     # Picked from https://github.com/trimstray/the-practical-linux-hardening-guide/wiki/Network-stack
 
     "net.ipv4.icmp_ignore_bogus_error_responces" = 1;
