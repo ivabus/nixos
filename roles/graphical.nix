@@ -98,10 +98,12 @@ in {
       networking.networkmanager.enable = lib.mkForce true;
       networking.networkmanager.wifi.backend = "iwd";
       programs.nm-applet.enable = true;
-      services.xserver.displayManager.sddm.enable = true;
-      services.xserver.enable = true;
-      services.xserver.layout = "us,ru";
-      services.xserver.xkbOptions = "grp:alt_shift_toggle";
+      services.xserver = {
+        displayManager.sddm.enable = true;
+        enable = true;
+        layout = "us,ru";
+        xkbOptions = "grp:alt_shift_toggle";
+      };
     })
     (lib.mkIf (cfg.basic.enable || cfg.enable) {
       services.pipewire = {
