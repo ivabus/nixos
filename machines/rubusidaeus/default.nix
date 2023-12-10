@@ -61,33 +61,39 @@ in {
       locations."/".proxyPass = "http://${secrets.maas-address}:8081";
       enableACME = true;
       addSSL = true;
+      http3 = true;
       serverAliases = [ "www.iva.bz" ];
     };
     virtualHosts."xn--80acbx2cl.xn--p1ai" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:8083";
       enableACME = true;
       addSSL = true;
+      http3 = true;
       serverAliases = [ "ивабус.рф" ];
     };
     virtualHosts."music.ivabus.dev" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:4533";
       enableACME = true;
       forceSSL = true;
+      http3 = true;
     };
     virtualHosts."storage.ivabus.dev" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:80";
       enableACME = true;
       forceSSL = true;
+      http3 = true;
     };
     virtualHosts."slides.ivabus.dev" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:80";
       enableACME = true;
       forceSSL = true;
+      http3 = true;
     };
     virtualHosts."git.ivabus.dev" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:3000";
       enableACME = true;
       forceSSL = true;
+      http3 = true;
     };
   };
 

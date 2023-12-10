@@ -7,6 +7,7 @@ in {
   config = lib.mkIf (cfg.enable) {
     services.nginx = {
       enable = true;
+      package = pkgs.nginxQuic;
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
       recommendedProxySettings = true;
@@ -18,5 +19,6 @@ in {
       defaults.email = "ivabus@ivabus.dev";
     };
     networking.firewall.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.allowedUDPPorts = [ 80 443 ];
   };
 }

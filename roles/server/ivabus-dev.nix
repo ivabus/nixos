@@ -9,6 +9,7 @@ in {
       virtualHosts."ivabus.dev" = {
         forceSSL = true;
         enableACME = true;
+        http3 = true;
 
         root = pkgs.callPackage ../../pkgs/ivabus-dev.nix { };
 
