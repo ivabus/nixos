@@ -8,4 +8,6 @@ in if (canaryHash != expectedHash && config.my.features.secrets) then
 else {
   hashed-password = builtins.readFile ./secrets/hashed-password;
   maas-address = builtins.readFile ./secrets/maas-address;
+  yggdrasil-peer = builtins.readFile ./secrets/yggdrasil-peer;
+  yggdrasil-password = builtins.readFile ./secrets/yggdrasil-password;
 }

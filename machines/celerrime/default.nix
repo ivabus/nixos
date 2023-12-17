@@ -23,6 +23,7 @@ in {
     torrent.enable = true;
     virtualisation.enable = false;
     yggdrasil-client.enable = true;
+    yggdrasil-peer.enable = false;
 
     server = { ivabus-dev.enable = false; };
   };

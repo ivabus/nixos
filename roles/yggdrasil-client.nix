@@ -1,17 +1,20 @@
-{ config, lib, ... }:
+{ config, lib, secrets, ... }:
 
 let cfg = config.my.roles.yggdrasil-client;
 in {
   options.my.roles.yggdrasil-client.enable =
     lib.mkEnableOption "Enable yggdrasil";
   config = lib.mkIf (cfg.enable) {
+    my.features.secrets = lib.mkForce true;
     services.yggdrasil = {
       enable = true;
       persistentKeys = true;
-      settings = {
-        Peers = [
-          # TODO: Maybe add more peers, not only mine. But for now it's ok
-          "tls://ygg.iva.bz:50002"
+      settings = 
+      {
+        # Not connecting to global ygg network
+        Peers = lib.mkDefault [
+          "quic://${secrets.yggdrasil-peer}:60003?password=${secrets.yggdrasil-password}"
+          "tls://${secrets.yggdrasil-peer}:60002?password=${secrets.yggdrasil-password}"
         ];
       };
     };

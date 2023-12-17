@@ -19,6 +19,7 @@ in {
     latex.enable = true;
     virtualisation.enable = true;
     yggdrasil-client.enable = true;
+    yggdrasil-peer.enable = false;
   };
 
   my.users = {

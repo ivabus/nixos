@@ -29,7 +29,8 @@ in {
     media-client.enable = true;
     torrent.enable = false;
     virtualisation.enable = false;
-    yggdrasil-client.enable = false;
+    yggdrasil-client.enable = true;
+    yggdrasil-peer.enable = false;
   };
 
   my.users = {

@@ -25,7 +25,7 @@ in {
     ntp-server.enable = true;
     torrent.enable = false;
     virtualisation.enable = false;
-    yggdrasil-client.enable = true;
+    yggdrasil-peer.enable = true;
 
     server = { ivabus-dev.enable = true; };
   };

@@ -11,6 +11,7 @@
     ./torrent.nix
     ./virtualisation.nix
     ./yggdrasil-client.nix
+    ./yggdrasil-peer.nix
 
     ./server/nginx.nix
     ./server/ivabus-dev.nix
