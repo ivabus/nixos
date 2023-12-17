@@ -9,8 +9,7 @@ in {
     services.yggdrasil = {
       enable = true;
       persistentKeys = true;
-      settings = 
-      {
+      settings = {
         # Not connecting to global ygg network
         Peers = lib.mkDefault [
           "quic://${secrets.yggdrasil-peer}:60003?password=${secrets.yggdrasil-password}"
