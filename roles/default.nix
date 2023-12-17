@@ -15,5 +15,6 @@
 
     ./server/nginx.nix
     ./server/ivabus-dev.nix
+    ./server/slides-ivabus-dev.nix
   ];
 }

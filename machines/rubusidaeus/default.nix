@@ -27,7 +27,10 @@ in {
     virtualisation.enable = false;
     yggdrasil-peer.enable = true;
 
-    server = { ivabus-dev.enable = true; };
+    server = {
+      ivabus-dev.enable = true;
+      slides-ivabus-dev.enable = true;
+    };
   };
 
   my.users = {
@@ -78,12 +81,6 @@ in {
       http3 = true;
     };
     virtualHosts."storage.ivabus.dev" = {
-      locations."/".proxyPass = "http://${secrets.maas-address}:80";
-      enableACME = true;
-      forceSSL = true;
-      http3 = true;
-    };
-    virtualHosts."slides.ivabus.dev" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:80";
       enableACME = true;
       forceSSL = true;
