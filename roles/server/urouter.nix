@@ -66,7 +66,9 @@ in {
             pkgs.callPackage ../../pkgs/urouter.nix { }
           }/bin/urouter --alias-file-is-set-not-a-list --alias-file ${
             aliasFormat.generate "alias.json" cfg.settings
-          } --dir ${cfg.dir} --address ${cfg.address} --port ${builtins.toString cfg.port}
+          } --dir ${cfg.dir} --address ${cfg.address} --port ${
+            builtins.toString cfg.port
+          }
         '';
         BindReadOnlyPaths = [ cfg.dir ];
       };
