@@ -67,7 +67,7 @@ curl https://iva.bz/nix | sh
 
 - Setup services (which I host)
   - [x] ivabus.dev
-  - [x] iva.bz (proxying not-Nix env)
+  - [x] iva.bz (native Nix, yay!)
   - [x] ивабус.рф (proxying not-Nix env)
 - Setup "secret" roles (I need them)
 - Setup router (in progress with `periculo`, aughhhhhhhhh it seems like I need to crosscompile it for 30 days straight, so no fast progress)

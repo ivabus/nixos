@@ -30,6 +30,42 @@ in {
     server = {
       ivabus-dev.enable = true;
       slides-ivabus-dev.enable = true;
+      urouter = {
+        enable = true;
+        settings = {
+          alias = [
+            {
+              "uri" = "/";
+              "alias" = "https://ivabus.dev";
+              "is_url" = true;
+            }
+            {
+              "uri" = "/";
+              "alias" = "dotfiles";
+              "curl_only" = true;
+            }
+            {
+              "uri" = "d";
+              "alias" = "dotfiles";
+            }
+            {
+              "uri" = "e";
+              "alias" = "env";
+            }
+            {
+              "uri" = "nix";
+              "alias" = "nix";
+            }
+            {
+              "uri" = "truth";
+              "alias" = "truth.py";
+            }
+          ];
+        };
+        dir = "/var/urouter";
+        port = 8090;
+        address = "0.0.0.0";
+      };
     };
   };
 
@@ -61,7 +97,7 @@ in {
   # Semi-static configuration, needs rethinking
   services.nginx = {
     virtualHosts."iva.bz" = {
-      locations."/".proxyPass = "http://${secrets.maas-address}:8081";
+      locations."/".proxyPass = "http://localhost:8090";
       enableACME = true;
       addSSL = true;
       http3 = true;
