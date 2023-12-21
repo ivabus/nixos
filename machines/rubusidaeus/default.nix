@@ -36,29 +36,28 @@ in {
           alias = [
             {
               "uri" = "/";
-              "alias" = "https://ivabus.dev";
-              "is_url" = true;
+              "alias" = { url = "https://ivabus.dev"; };
             }
             {
               "uri" = "/";
-              "alias" = "dotfiles";
+              "alias" = { file = "dotfiles"; };
               "curl_only" = true;
             }
             {
               "uri" = "d";
-              "alias" = "dotfiles";
+              "alias" = { file = "dotfiles"; };
             }
             {
               "uri" = "e";
-              "alias" = "env";
+              "alias" = { file = "env"; };
             }
             {
               "uri" = "nix";
-              "alias" = "nix";
+              "alias" = { file = "nix"; };
             }
             {
               "uri" = "truth";
-              "alias" = "truth.py";
+              "alias" = { file = "truth.py"; };
             }
           ];
         };

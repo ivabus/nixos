@@ -13,12 +13,11 @@ in {
         alias = [
           {
             uri = "/";
-            alias = "https://someurl";
-            is_url = true;
+            alias = { url = "https://someurl"; };
           }
           {
             uri = "/";
-            alias = "some_file";
+            alias = { file = "some_file"; };
             curl_only = true;
           }
         ];
