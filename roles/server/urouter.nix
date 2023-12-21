@@ -5,6 +5,7 @@ let
 in {
   options.my.roles.server.urouter = {
     enable = lib.mkEnableOption "Enable urouter";
+
     settings = lib.mkOption rec {
       type = aliasFormat.type;
       apply = lib.recursiveUpdate default;

@@ -35,29 +35,29 @@ in {
         settings = {
           alias = [
             {
-              "uri" = "/";
-              "alias" = { url = "https://ivabus.dev"; };
+              uri = "/";
+              alias = { url = "https://ivabus.dev"; };
             }
             {
-              "uri" = "/";
-              "alias" = { file = "dotfiles"; };
-              "curl_only" = true;
+              uri = "/";
+              alias = { file = "dotfiles"; };
+              agent = { regex = "^curl/[0-9].[0-9].[0-9]$"; };
             }
             {
-              "uri" = "d";
-              "alias" = { file = "dotfiles"; };
+              uri = "d";
+              alias = { file = "dotfiles"; };
             }
             {
-              "uri" = "e";
-              "alias" = { file = "env"; };
+              uri = "e";
+              alias = { file = "env"; };
             }
             {
-              "uri" = "nix";
-              "alias" = { file = "nix"; };
+              uri = "nix";
+              alias = { file = "nix"; };
             }
             {
-              "uri" = "truth";
-              "alias" = { file = "truth.py"; };
+              uri = "truth";
+              alias = { file = "truth.py"; };
             }
           ];
         };
