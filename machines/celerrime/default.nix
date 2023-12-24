@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, rust-overlay, ... }:
 
 let my = import ../..;
 in {
@@ -18,7 +18,7 @@ in {
     devel.enable = true;
     gaming.enable = false;
     graphical.enable = true;
-    latex.enable = true;
+    latex.enable = false;
     media-client.enable = true;
     torrent.enable = true;
     virtualisation.enable = false;

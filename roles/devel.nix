@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, rust-overlay, ... }:
 
 let cfg = config.my.roles.devel;
 in {
@@ -7,10 +7,16 @@ in {
   config = lib.mkIf (cfg.enable) (lib.mkMerge [
     {
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.overlays = [ rust-overlay.overlays.default ];
       environment.systemPackages = with pkgs; [
-        rustc
-        cargo
-        rustup
+        (rust-bin.stable.latest.default.override {
+          extensions = [ "rust-src" ];
+          targets = [
+            pkgs.stdenv.hostPlatform.config
+            "x86_64-unknown-linux-musl"
+            "aarch64-unknown-linux-musl"
+          ];
+        })
         clang
         llvm
         lld
