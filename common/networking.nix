@@ -23,6 +23,7 @@
 
   services.avahi = {
     enable = true;
+    nssmdns4 = true;
   };
 
   services.chrony.enable = true;

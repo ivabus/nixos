@@ -63,7 +63,7 @@ in {
         gtk = {
           enable = true;
           theme = {
-            name = "Catppuccin-Macchiato-Standard-Blue-dark";
+            name = "Catppuccin-Macchiato-Standard-Blue-Dark";
             package = pkgs.catppuccin-gtk.override {
               accents = [ "blue" ];
               tweaks = [ "rimless" ];
@@ -106,13 +106,7 @@ in {
       };
     })
     (lib.mkIf (cfg.basic.enable || cfg.enable) {
-      services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        pulse.enable = true;
-        alsa.support32Bit = true;
-      };
-
+      sound.enable = true;
       qt = {
         enable = true;
         platformTheme = "gtk2";

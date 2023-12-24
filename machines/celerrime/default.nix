@@ -39,6 +39,7 @@ in {
   hardware.asahi.peripheralFirmwareDirectory = ../../asahi/firmware;
   hardware.asahi.addEdgeKernelConfig = true;
   hardware.asahi.useExperimentalGPUDriver = true;
+  hardware.asahi.setupAsahiSound = true;
 
   environment.systemPackages = with pkgs;
     [ (retroarch.override { cores = with libretro; [ np2kai ]; }) ];

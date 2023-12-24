@@ -94,10 +94,10 @@ in {
   };
 
   # 2 gig of ram is not enough
-  swapDevices = [ {
+  swapDevices = [{
     device = "/var/lib/swapfile";
-    size = 16*1024;
-  } ];
+    size = 16 * 1024;
+  }];
 
   # Semi-static configuration, needs rethinking
   services.nginx = {

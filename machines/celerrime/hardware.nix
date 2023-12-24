@@ -9,25 +9,23 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/aed0b311-8954-4164-afc3-9e7c6a2d8c2a";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/679b5c29-3e7f-4449-96f0-7e5890302e32";
+    fsType = "btrfs";
   };
 
-  boot.initrd.luks.devices."cryptroot".device =
-    "/dev/disk/by-uuid/8551d309-afe6-4a25-b571-b2cb1eff7c09";
+  boot.initrd.luks.devices."nixos-root".device =
+    "/dev/disk/by-uuid/845370c8-5841-4c9e-b50b-c3a70f6fd2b6";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/771E-1309";
+    device = "/dev/disk/by-uuid/2AC0-1B04";
     fsType = "vfat";
   };
 
   swapDevices = [{
-    device = "/dev/disk/by-partuuid/dace6477-697e-4bba-aede-eb0e9f7a28ff";
+    device = "/dev/disk/by-partuuid/8bd4586f-e44b-41b3-a060-52ba7773237f";
     randomEncryption.enable = true;
   }];
 
   networking.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }
