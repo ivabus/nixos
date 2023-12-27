@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { }, ... }:
 let
-  version = "107f8e0d7e02449bc47bbc6fb03f7d1ce2fae60b";
+  version = "797b04b9901c6803ef568551d6159792a2405b1c";
   repo = builtins.fetchGit {
     url = "https://github.com/ivabus/slides.ivabus.dev";
     rev = version;
