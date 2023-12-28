@@ -9,10 +9,6 @@
     allowSimultaneousMultithreading = lib.mkDefault false;
     forcePageTableIsolation = true;
     virtualisation.flushL1DataCache = "always";
-    apparmor = {
-      enable = true;
-      killUnconfinedConfinables = true;
-    };
     allowUserNamespaces = true;
   };
 
