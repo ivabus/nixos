@@ -10,6 +10,9 @@ in {
   boot.loader.efi.canTouchEfiVariables = false;
   # Enable screen space near notch
   boot.kernelParams = [ "apple_dcp.show_notch=1" ];
+   services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+  '';
 
   my.laptop.enable = true;
   my.git.enable = true;
