@@ -18,6 +18,7 @@ in {
         cinnamon.nemo
         usbmuxd
         keepassxc
+        btop
       ];
       # When adding pkgs prefer GTK over Qt, because Qt bad GTK good
 
