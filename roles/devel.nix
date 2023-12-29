@@ -15,6 +15,7 @@ in {
             pkgs.stdenv.hostPlatform.config
             "x86_64-unknown-linux-musl"
             "aarch64-unknown-linux-musl"
+            "riscv64gc-unknown-linux-gnu" # Musl version is tier 3, so no automatic builds
           ];
         })
         clang
