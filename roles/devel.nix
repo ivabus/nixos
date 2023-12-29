@@ -30,6 +30,7 @@ in {
         screen
         hyperfine
         nixfmt
+        sshfs
       ];
     }
     # Architecture-specific packages and configuration
