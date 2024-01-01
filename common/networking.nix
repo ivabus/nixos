@@ -28,6 +28,7 @@
     publish = {
       enable = true;
       addresses = true;
+      userServices = true;
     };
   };
 
