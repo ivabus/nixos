@@ -106,7 +106,14 @@ in {
       };
     })
     (lib.mkIf (cfg.basic.enable || cfg.enable) {
+      # I should move sound part somewhere else
       sound.enable = true;
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
+        alsa.support32Bit = true;
+      };
       qt = {
         enable = true;
         platformTheme = "gtk2";
