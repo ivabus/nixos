@@ -12,7 +12,6 @@ in {
         alacritty
         pavucontrol
         bottom
-        mpv
         glib
         ffmpeg
         cinnamon.nemo
