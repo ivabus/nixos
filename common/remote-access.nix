@@ -1,7 +1,6 @@
-{ cfg, lib, ... }:
+{ config, pkgs, lib, ... }:
 
-let my = import ../.;
-in {
+{
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
@@ -15,5 +14,6 @@ in {
 
     '';
   };
+  environment.systemPackages = lib.mkIf config.my.roles.graphical.enable [ pkgs.waypipe ];
   programs.ssh.startAgent = true;
 }
