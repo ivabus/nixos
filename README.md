@@ -55,9 +55,11 @@ in {
 
 I "made" some shell in [shells/](./shells).
 
-## Dotfiles (from `ivabus/dotfiles`)
+## Dotfiles development
 
-I install my dotfiles with prepared script
+As I fully manage my dotfiles through home-manager and `fetchGit` they are readonly.
+
+To install normal version of them disable `my.users.ivabus.dotfiles.enable` and run this command (which installs and links dotfiles)
 
 ```
 curl https://iva.bz/nix | sh
@@ -71,7 +73,6 @@ curl https://iva.bz/nix | sh
   - [x] ивабус.рф (proxying not-Nix env)
 - Setup "secret" roles (I need them)
 - Setup router (in progress with `periculo`, aughhhhhhhhh it seems like I need to crosscompile it for 30 days straight, so no fast progress)
-- Setup dotfiles properly with home-manager
 
 ## Copyright
 

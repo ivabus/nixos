@@ -5,8 +5,6 @@ in {
   options = { my.git.enable = lib.mkEnableOption "Enable git configuration"; };
 
   config = lib.mkIf (cfg.enable && config.my.users.ivabus.enable) {
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
     home-manager.users.ivabus = {
       programs.git = {
         enable = true;
@@ -16,7 +14,6 @@ in {
         signing.signByDefault = true;
         package = pkgs.gitAndTools.gitFull;
       };
-      home.stateVersion = "23.05";
     };
   };
 }

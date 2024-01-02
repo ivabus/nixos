@@ -1,7 +1,7 @@
 {
   imports = [
     ./base.nix
-    # ./dotfiles.nix unfinished yet
+    ./dotfiles.nix
     ./git.nix
     ./laptop.nix
     ./locale.nix

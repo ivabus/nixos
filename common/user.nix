@@ -34,6 +34,7 @@ in rec {
         hashedPassword = secrets.hashed-password;
       };
       programs.gnupg.agent.enable = true;
+      home-manager.users.ivabus.home.stateVersion = "24.05";
     })
 
     (lib.mkIf (cfg.user.enable) {
@@ -52,6 +53,7 @@ in rec {
         openssh.authorizedKeys.keys = keys;
         password = "12345";
       };
+      home-manager.users.user.home.stateVersion = "24.05";
     })
 
     ({
