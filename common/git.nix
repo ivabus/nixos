@@ -13,6 +13,9 @@ in {
         signing.key = "2F16FBF3262E090C";
         signing.signByDefault = true;
         package = pkgs.gitAndTools.gitFull;
+        extraConfig = {
+          core.editor = "nvim";
+        };
       };
     };
   };
