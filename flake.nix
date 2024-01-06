@@ -5,6 +5,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nur.url = "github:nix-community/NUR";
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,23 +14,33 @@
 
     apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, apple-silicon-support
-    , ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, rust-overlay, nixos-hardware
+    , apple-silicon-support, nur, ... }@inputs: {
       # Stella = Unchartevice 6540 (Ryzen 3 3250U, 16GB RAM)
       nixosConfigurations."stella" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
-        modules = [ home-manager.nixosModules.home-manager ./machines/stella ];
+        modules = [
+          nur.nixosModules.nur
+          home-manager.nixosModules.home-manager
+          ./machines/stella
+        ];
       };
 
       # Vetus = iMac 27" 2017, i5, 64 GB RAM
       nixosConfigurations."vetus" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
-        modules = [ home-manager.nixosModules.home-manager ./machines/vetus ];
+        modules = [
+          nur.nixosModules.nur
+          home-manager.nixosModules.home-manager
+          ./machines/vetus
+        ];
       };
 
       # Celerrime = MacBook Air M2
@@ -36,6 +48,7 @@
         system = "aarch64-linux";
         specialArgs = inputs;
         modules = [
+          nur.nixosModules.nur
           home-manager.nixosModules.home-manager
           apple-silicon-support.nixosModules.apple-silicon-support
           ./machines/celerrime
@@ -46,7 +59,11 @@
       nixosConfigurations."cursor" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = inputs;
-        modules = [ home-manager.nixosModules.home-manager ./machines/cursor ];
+        modules = [
+          nur.nixosModules.nur
+          home-manager.nixosModules.home-manager
+          ./machines/cursor
+        ];
       };
 
       # Raspberry Pi 4B 2GB RAM
@@ -55,6 +72,7 @@
         specialArgs = inputs;
         modules = [
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          nur.nixosModules.nur
           home-manager.nixosModules.home-manager
           ./machines/rubusidaeus
         ];

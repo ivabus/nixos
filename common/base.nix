@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nur, ... }:
 
 let
   my = import ../.;
@@ -19,6 +19,8 @@ in {
       options = "--delete-older-than 7d";
     };
   };
+
+  nixpkgs.overlays = [ nur.overlay ];
 
   documentation = {
     doc.enable = false;
