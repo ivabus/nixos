@@ -15,10 +15,12 @@ in {
         glib
         ffmpeg
         cinnamon.nemo
+        swayimg
         usbmuxd
-        keepassxc
         btop
+        cava
       ];
+      services.gnome.gnome-keyring.enable = true;
       # When adding pkgs prefer GTK over Qt, because Qt bad GTK good
 
       services.greetd = {
@@ -49,6 +51,7 @@ in {
           mako
           brightnessctl
           wdisplays
+          playerctl
         ];
         wrapperFeatures.gtk = true;
       };
