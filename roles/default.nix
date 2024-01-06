@@ -1,5 +1,6 @@
 {
   imports = [
+    ./airplay-server.nix
     ./design.nix
     ./devel.nix
     ./gaming.nix
