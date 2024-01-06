@@ -51,10 +51,6 @@ in {
 }
 ```
 
-## Shells
-
-I "made" some shell in [shells/](./shells).
-
 ## Dotfiles development
 
 As I fully manage my dotfiles through home-manager and `fetchGit` they are readonly.
