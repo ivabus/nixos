@@ -33,27 +33,28 @@ in {
         sshfs
       ];
     }
-    # Architecture-specific packages and configuration
-    (lib.mkIf (!pkgs.stdenv.isAarch64) {
-      boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-    })
-    (lib.mkIf (!pkgs.stdenv.isAarch32) {
-      boot.binfmt.emulatedSystems = [ "armv6l-linux" ];
-    })
-    (lib.mkIf (!pkgs.stdenv.isx86_64) {
-      boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" ];
-    })
+    /* # Will be reenabled
+       # Architecture-specific packages and configuration
+       (lib.mkIf (!pkgs.stdenv.isAarch64) {
+         boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+       })
+       (lib.mkIf (!pkgs.stdenv.isAarch32) {
+         boot.binfmt.emulatedSystems = [ "armv6l-linux" ];
+       })
+       (lib.mkIf (!pkgs.stdenv.isx86_64) {
+         boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" ];
+       })
+    */
 
     /* # Install CLion only if we are on x86_64
         (lib.mkIf (pkgs.stdenv.isx86_64) {
           environment.systemPackages = with pkgs; [ jetbrains.clion ];
         })
-
-        # Install vscode only if we are on x86_64 or aarch64 or aarch32
-        (lib.mkIf
-          (pkgs.stdenv.isx86_64 || pkgs.stdenv.isAarch64 || pkgs.stdenv.isAarch32) {
-            environment.systemPackages = with pkgs; [ vscode ];
-          })
     */
+    # Install vscode only if we are on x86_64 or aarch64 or aarch32
+    (lib.mkIf
+      (pkgs.stdenv.isx86_64 || pkgs.stdenv.isAarch64 || pkgs.stdenv.isAarch32) {
+        environment.systemPackages = with pkgs; [ vscode-fhs ];
+      })
   ]);
 }

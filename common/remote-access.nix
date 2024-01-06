@@ -14,6 +14,7 @@
 
     '';
   };
-  environment.systemPackages = lib.mkIf config.my.roles.graphical.enable [ pkgs.waypipe ];
+  environment.systemPackages =
+    lib.mkIf config.my.roles.graphical.enable [ pkgs.waypipe ];
   programs.ssh.startAgent = true;
 }
