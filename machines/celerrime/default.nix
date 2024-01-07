@@ -34,9 +34,12 @@ in {
     ivabus.enable = true;
     user.enable = false;
   };
-  my.features.secrets = true;
+  my.features.secrets = false;
 
   networking.useDHCP = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.input = { General = { UserspaceHID = true; }; };
+  services.blueman.enable = true;
 
   # Setup asahi-specific things. NOTE: you must copy firmware from ESP to /etc/nixos/asahi/firmware
   hardware.asahi.peripheralFirmwareDirectory = ../../asahi/firmware;
