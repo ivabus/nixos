@@ -3,9 +3,17 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "usb_storage" "xhci_pci" "usbhid" ];
+  boot.initrd.availableKernelModules = [
+    "usb-storage"
+    "xhci_pci"
+    "usbhid"
+    "mmc_block"
+    "xhci_hcd"
+    "xhci_plat_hcd"
+    "hid_generic"
+  ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "uhid" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
