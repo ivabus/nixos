@@ -1,6 +1,6 @@
-{ pkgs ? import <nixpkgs> { }, bundlerEnv, ... }:
+{ pkgs ? import <nixpkgs> { }, bundlerEnv ? pkgs.bundlerEnv, ... }:
 let
-  version = "a7c514e8b50fed844335a6e0e383d97a366e3e21";
+  version = "ee24ef24ce65367f831c10375613eff3f8cf5f09";
   repo = builtins.fetchGit {
     url = "https://github.com/ivabus/website";
     rev = version;
@@ -29,6 +29,7 @@ in pkgs.stdenv.mkDerivation {
   ];
 
   buildPhase = ''
+    echo "commit_id: ${version}" >> _config.yml
     bundle exec jekyll build 
   '';
 
