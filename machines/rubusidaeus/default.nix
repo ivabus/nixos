@@ -36,7 +36,77 @@ in {
           alias = [
             {
               uri = "/";
-              alias = { url = "https://ivabus.dev"; };
+              alias = {
+                html = ''
+                  <!DOCTYPE html>
+                  <html lang="en">
+                  <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>@ivabus</title>
+                    <style>
+                      @font-face {
+                        font-family: "JetBrains Mono";
+                        src: url(https://ivabus.dev/assets/fonts/JetBrainsMono-VariableFont_wght.ttf)format("truetype")
+                      }
+                      body {
+                        width: 300px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        background-color: #24273a;
+                        color: #cad3f5;
+                        font-family: "JetBrains Mono";
+                      }
+                      h1 {
+                        font-size: 24pt;
+                      }
+                      ul {
+                        background-color: #363a4f;
+                        border-radius: 6px;
+                        padding: 16px;
+                        padding-bottom: 8px;
+                        list-style-type: none;
+                        text-align: center;
+                      }
+                      a {
+                        color: #cad3f5;
+                        text-decoration: none; 
+                      }
+                      li {
+                        background-color: #494d64;
+                        font-size: 14pt;
+                        border-radius: 6px;
+                        padding: 8px;
+                        margin-bottom: 8px;
+                      }
+                      a:hover {
+                        color: #f4dbd6;
+                      }
+                      li:hover {
+                        background-color: #5b6078;
+                        color: #f4dbd6;
+                      }
+                      @media all and (max-width:300px) {
+                        body {
+                          width: auto;
+                        }
+                      }
+                    </style>
+                  </head>
+                  <body>
+                    <h1 align="center">@ivabus</h1>
+                    <ul>
+                      <a href="https://ivabus.dev/"><li>Website</li></a>
+                      <a href="https://t.me/dev_fumo"><li>/dev/fumo</li></a>
+                      <a href="https://t.me/musicativabus"><li>/var/music@ivabus</li></a>
+                      <a href="https://github.com/ivabus"><li>GitHub</li></a>
+                      <a href="https://social.treehouse.systems/@ivabus"><li>Mastodon</li></a>
+                      <a href="https://vk.com/ivabus"><li>VK</li></a>
+                      <li class="link">ivabus at ivabus.dev</li>
+                    </ul>
+                  </body>
+                  </html>'';
+              };
             }
             {
               uri = "/";
