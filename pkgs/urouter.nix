@@ -3,14 +3,14 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "urouter";
-  version = "0.6.0";
+  version = "0.6.1";
 
   src = fetchCrate {
     inherit pname version;
-    sha256 = "sha256-KfoZ9NinD6PCL4M3U4sB8GHdbDLeRW7uFeQpGxmzJ90=";
+    sha256 = "sha256-1HKAqX15gvfzUFpyt0FFq9NZog1XSgeEYCrGVu4lSKM=";
   };
 
-  cargoSha256 = "sha256-VfoF4hzWf5j2QtXyS/jFYCMfowl47YcAjxs2PV9C6oo=";
+  cargoSha256 = "sha256-e/gVAmLhHhkPqxanTSz/qrayJUlBcFT0/WjA726H0bk=";
 
   nativeBuildInputs = [ pkgs.pkg-config ];
 }
