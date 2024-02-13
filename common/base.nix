@@ -14,10 +14,6 @@ in {
       trusted-users = [ "root" "ivabus" ];
       allowed-users = [ "root" "ivabus" ];
     };
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 7d";
-    };
   };
 
   nixpkgs.overlays = [ nur.overlay ];
