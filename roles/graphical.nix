@@ -40,6 +40,7 @@ in {
           waybar
           grim
           slurp
+	  jq
           wf-recorder
           sway-launcher-desktop
           swaybg
