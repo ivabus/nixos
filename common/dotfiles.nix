@@ -3,7 +3,7 @@
 let
   dotfiles = builtins.fetchGit {
     url = "https://github.com/ivabus/dotfiles";
-    rev = "5e939a07ccca41a5736999c683a0c3b37eee62e8";
+    rev = "174e6d509ae52b6cfc1a637e5919149d2e93d671";
   };
   theme = builtins.fetchurl {
     url =
