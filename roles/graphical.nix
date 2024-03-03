@@ -4,7 +4,7 @@ let cfg = config.my.roles.graphical;
 in {
   options.my.roles.graphical.enable = lib.mkEnableOption "Enable GUI (sway)";
   options.my.roles.graphical.basic.enable =
-    lib.mkEnableOption "Enable GUI (MATE)";
+    lib.mkEnableOption "Enable GUI (Plasma 6)";
   config = lib.mkMerge [
     (lib.mkIf (cfg.enable) {
       environment.systemPackages = with pkgs; [
@@ -70,6 +70,8 @@ in {
 
         XDG_CURRENT_DESKTOP = "sway";
       };
+    })
+    (lib.mkIf (cfg.enable && config.my.users.ivabus.enable) {
       home-manager.users.ivabus = {
         gtk = {
           enable = true;
@@ -104,13 +106,15 @@ in {
       };
     })
     (lib.mkIf (cfg.basic.enable) {
-      environment.systemPackages = with pkgs; [ ubuntu-themes ];
-      services.xserver.desktopManager.mate.enable = true;
+      services.xserver.desktopManager.plasma6.enable = true;
       networking.networkmanager.enable = lib.mkForce true;
       networking.networkmanager.wifi.backend = "iwd";
       programs.nm-applet.enable = true;
       services.xserver = {
-        displayManager.sddm.enable = true;
+        displayManager.sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
         enable = true;
         layout = "us,ru";
         xkbOptions = "grp:alt_shift_toggle";
@@ -125,17 +129,17 @@ in {
         pulse.enable = true;
         alsa.support32Bit = true;
       };
-      qt = {
+      /*qt = {
         enable = true;
         platformTheme = "gtk2";
         style = "gtk2";
-      };
+      };*/
 
       services.dbus.enable = true;
-      environment.systemPackages = [
-        # With this
-        (pkgs.wrapFirefox
-          (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
+      environment.systemPackages = with pkgs; [
+        (wrapFirefox
+          (firefox-unwrapped.override { pipewireSupport = true; }) { })
+        libreoffice
       ];
       environment.sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
 
@@ -147,7 +151,6 @@ in {
         noto-fonts-emoji
         jetbrains-mono
         font-awesome
-        #google-fonts
         liberation_ttf
         open-sans
         roboto
