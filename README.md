@@ -24,7 +24,7 @@ nix build path:{{REPO_PATH}}#nixosConfigurations.HOST.config.system.build.sdImag
 nixos-rebuild switch --flake path:/etc/nixos
 ```
 
-Apple Silicon hosts require additional `--impure` flag for firmware installation. (Firmware should be placed in `/etc/nixos/asahi/firmware` (ignored by git)).
+Apple Silicon hosts require additional `--impure` flag for firmware installation. (Firmware should be placed in `/etc/nixos/asahi/firmware` (ignored by git) and m1n1 icon to `/etc/nixos/asahi/icon.png` (256x256px)).
 
 ### Hosts configured
 
@@ -63,10 +63,6 @@ curl https://iva.bz/nix | sh
 
 ## TODO
 
-- Setup services (which I host)
-  - [x] ivabus.dev
-  - [x] iva.bz (native Nix, yay!)
-  - [x] ивабус.рф (proxying not-Nix env)
 - Setup "secret" roles (I need them)
 - Setup router (in progress with `periculo`, aughhhhhhhhh it seems like I need to crosscompile it for 30 days straight, so no fast progress)
 
