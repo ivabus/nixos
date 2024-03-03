@@ -83,35 +83,53 @@ in {
             };
             userChrome = ''
               .titlebar-buttonbox-container, .titlebar-spacer, #alltabs-button {
-                display:none;
-              }'';
-            bookmarks = [
-              {
-                name = "NixOS Search";
-                url = "https://search.nixos.org";
-              }
-              {
-                name = "GitHub";
-                url = "https://github.com";
-              }
-              {
-                name = "YouTube";
-                url = "https://youtube.com";
-              }
-              {
-                name = "VK";
-                url = "https://vk.com";
-              }
-              {
-                name = "Mastodon";
-                url = "https://social.treehouse.systems";
-              }
-              # I go to school, you know?
-              {
-                name = "ЭД";
-                url = "https://dnevnik2.petersburgedu.ru";
-              }
-            ];
+                              display:none;
+                            }
+              #PlacesToolbarItems {justify-content: center;}
+            '';
+            bookmarks = [{
+              name = "Toolbar";
+              toolbar = true;
+              bookmarks = [
+                {
+                  name = "NixOS Search";
+                  url = "https://search.nixos.org";
+                }
+                {
+                  name = "Yandex";
+                  url = "https://ya.ru";
+                }
+                {
+                  name = "Google";
+                  url = "https://google.com";
+                }
+                {
+                  name = "GitHub";
+                  url = "https://github.com";
+                }
+                {
+                  name = "YouTube";
+                  url = "https://youtube.com";
+                }
+                {
+                  name = "Telegram";
+                  url = "https://web.telegram.org";
+                }
+                {
+                  name = "VK";
+                  url = "https://vk.com";
+                }
+                {
+                  name = "Mastodon";
+                  url = "https://social.treehouse.systems";
+                }
+                # I go to school, you know?
+                {
+                  name = "ЭД";
+                  url = "https://dnevnik2.petersburgedu.ru";
+                }
+              ];
+            }];
             settings = {
               "intl.accept_languages" = [ "ru-RU" "ru" "en-US" "en" ];
               "font.language.group" = "x-cyrillic";
