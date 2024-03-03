@@ -17,20 +17,21 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/679b5c29-3e7f-4449-96f0-7e5890302e32";
+    device = "/dev/disk/by-uuid/4b0a6b8a-a85c-4256-9d83-e46d47e0d017";
     fsType = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
   };
 
   boot.initrd.luks.devices."nixos-root".device =
-    "/dev/disk/by-uuid/845370c8-5841-4c9e-b50b-c3a70f6fd2b6";
+    "/dev/disk/by-uuid/528c8aa3-d15d-4b23-bbb5-d21cd3edee4b";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2AC0-1B04";
+    device = "/dev/disk/by-uuid/A65B-1700";
     fsType = "vfat";
   };
 
   swapDevices = [{
-    device = "/dev/disk/by-partuuid/8bd4586f-e44b-41b3-a060-52ba7773237f";
+    device = "/dev/disk/by-partuuid/6d6e837c-d63c-4254-afff-88b69787024f";
     randomEncryption.enable = true;
   }];
 

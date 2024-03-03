@@ -43,9 +43,9 @@ in {
 
   # Setup asahi-specific things. NOTE: you must copy firmware from ESP to /etc/nixos/asahi/firmware
   hardware.asahi.peripheralFirmwareDirectory = ../../asahi/firmware;
-  hardware.asahi.addEdgeKernelConfig = true;
   hardware.asahi.useExperimentalGPUDriver = true;
   hardware.asahi.setupAsahiSound = true;
+  boot.m1n1CustomLogo = ../../asahi/logo.png;
 
   environment.systemPackages = with pkgs;
     [ (retroarch.override { cores = with libretro; [ np2kai ]; }) ];

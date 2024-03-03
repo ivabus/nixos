@@ -6,7 +6,7 @@ let
     # Celerrime macOS
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0GX4/09I5B7nVeU3EKw58VyKNsbwpi4KzuJrgpoVfR ivabus@celerrime-x"
     # Celerrime NixOS
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPKp/t0ImyVYqaxVda8XP6fcxJVkf+Sc4oo3x5a5j2Gk ivabus@celerrime"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDgplnr0Rgv6osbq7pwmFuKQ1/egXg52gbLmswuvCiT ivabus@celerrime"
   ];
 in rec {
   options.my.users = {
