@@ -8,7 +8,6 @@ in {
   config = lib.mkMerge [
     (lib.mkIf (cfg.enable) {
       environment.systemPackages = with pkgs; [
-        firefox
         alacritty
         pavucontrol
         bottom
@@ -40,7 +39,7 @@ in {
           waybar
           grim
           slurp
-	  jq
+          jq
           wf-recorder
           sway-launcher-desktop
           swaybg
@@ -60,9 +59,17 @@ in {
       xdg.portal = {
         enable = true;
         wlr.enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-wlr
+        ];
       };
-      environment.sessionVariables.NIXOS_OZONE_WL =
-        "1"; # Enable wayland for electron
+
+      environment.sessionVariables = {
+        NIXOS_OZONE_WL = "1"; # Enable wayland for electron
+
+        XDG_CURRENT_DESKTOP = "sway";
+      };
       home-manager.users.ivabus = {
         gtk = {
           enable = true;
@@ -97,7 +104,7 @@ in {
       };
     })
     (lib.mkIf (cfg.basic.enable) {
-      environment.systemPackages = with pkgs; [ firefox ubuntu-themes ];
+      environment.systemPackages = with pkgs; [ ubuntu-themes ];
       services.xserver.desktopManager.mate.enable = true;
       networking.networkmanager.enable = lib.mkForce true;
       networking.networkmanager.wifi.backend = "iwd";
@@ -125,6 +132,12 @@ in {
       };
 
       services.dbus.enable = true;
+      environment.systemPackages = [
+        # With this
+        (pkgs.wrapFirefox
+          (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
+      ];
+      environment.sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
 
       fonts.packages = with pkgs; [
         noto-fonts
