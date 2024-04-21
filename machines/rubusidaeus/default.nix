@@ -2,7 +2,7 @@
 
 let
   my = import ../..;
-  ipv6_subnet = "2a05:3580:e41a:d600";
+  ipv6_subnet = "2a03:e2c0:47cb:5555";
   ipv6_prefix = 64;
   ipv4_gateway = "192.168.1.1";
   ipv4_address = "192.168.1.3";
@@ -55,7 +55,7 @@ in {
                         margin-right: auto;
                         background-color: #24273a;
                         color: #cad3f5;
-                        font-family: "JetBrains Mono";
+                        font-family: "JetBrains Mono", monospace;
                       }
                       h1 {
                         font-size: 24pt;
@@ -70,7 +70,7 @@ in {
                       }
                       a {
                         color: #cad3f5;
-                        text-decoration: none; 
+                        text-decoration: none;
                       }
                       li {
                         background-color: #494d64;
@@ -175,6 +175,7 @@ in {
       locations."/".proxyPass = "http://localhost:8090";
       enableACME = true;
       addSSL = true;
+      quic = true;
       http3 = true;
       serverAliases = [ "www.iva.bz" ];
     };
@@ -182,6 +183,7 @@ in {
       locations."/".proxyPass = "http://${secrets.maas-address}:8083";
       enableACME = true;
       addSSL = true;
+      quic = true;
       http3 = true;
       serverAliases = [ "ивабус.рф" ];
     };
@@ -189,18 +191,35 @@ in {
       locations."/".proxyPass = "http://${secrets.maas-address}:4533";
       enableACME = true;
       forceSSL = true;
+      quic = true;
       http3 = true;
     };
     virtualHosts."storage.ivabus.dev" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:80";
       enableACME = true;
       forceSSL = true;
+      quic = true;
+      http3 = true;
+    };
+    virtualHosts."storage.private.ivabus.dev" = {
+      locations."/".proxyPass = "http://${secrets.maas-address}:80";
+      enableACME = true;
+      forceSSL = true;
+      quic = true;
       http3 = true;
     };
     virtualHosts."git.ivabus.dev" = {
       locations."/".proxyPass = "http://${secrets.maas-address}:3000";
       enableACME = true;
       forceSSL = true;
+      quic = true;
+      http3 = true;
+    };
+    virtualHosts."b.iva.bz" = {
+      locations."/".proxyPass = "http://${secrets.maas-address}:8888";
+      enableACME = true;
+      addSSL = true;
+      quic = true;
       http3 = true;
     };
   };
@@ -208,4 +227,3 @@ in {
   hardware.enableRedistributableFirmware = true;
   system.stateVersion = "23.05";
 }
-

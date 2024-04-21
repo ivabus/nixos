@@ -9,6 +9,7 @@ in {
       virtualHosts."slides.ivabus.dev" = {
         forceSSL = true;
         enableACME = true;
+        quic = true;
         http3 = true;
 
         root = pkgs.callPackage ../../pkgs/slides-ivabus-dev.nix { };
