@@ -10,4 +10,5 @@ else {
   maas-address = builtins.readFile ./secrets/maas-address;
   yggdrasil-peer = builtins.readFile ./secrets/yggdrasil-peer;
   yggdrasil-password = builtins.readFile ./secrets/yggdrasil-password;
+  wireguard = import ./secrets/wireguard.nix;
 }

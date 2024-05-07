@@ -89,6 +89,17 @@
         ];
       };
 
+      # VPS - Wireguard
+      nixosConfigurations."tempore" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [
+          nur.nixosModules.nur
+          home-manager.nixosModules.home-manager
+          ./machines/tempore
+        ];
+      };
+
       # These machines will be configured later.
       /* # Effundam = MacBook Air M1 (server usage). Will not be added to flake.nix until thunderbolt and apfs proper support
          nixosConfigurations."effundam" = nixpkgs.lib.nixosSystem {
