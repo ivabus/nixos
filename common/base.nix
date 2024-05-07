@@ -5,7 +5,6 @@ let
   secrets = my.secrets { inherit config; };
 in {
   nix = {
-    package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
