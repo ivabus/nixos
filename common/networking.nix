@@ -22,8 +22,13 @@
   };
 
   services.chrony.enable = true;
-  networking.timeServers =
-    [ "89.109.251.21" "89.109.251.22" "ntp1.vniiftri.ru" "0.ru.pool.ntp.org" "0.pool.ntp.org" ];
+  networking.timeServers = [
+    "89.109.251.21"
+    "89.109.251.22"
+    "ntp1.vniiftri.ru"
+    "0.ru.pool.ntp.org"
+    "0.pool.ntp.org"
+  ];
 
   # Useful tools
   boot.kernelModules = [ "af_packet" ];
