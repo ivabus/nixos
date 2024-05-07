@@ -13,6 +13,7 @@ in {
     zoom-us
     whatsapp-for-linux
     telegram-desktop
+    libreoffice-fresh
   ];
 
   networking.hostName = "stella";
