@@ -25,7 +25,7 @@ in rec {
         uid = 1000;
         packages = with pkgs; [
           tree
-          neofetch # I use NixOS BTW
+          fastfetch # I use NixOS BTW
           duf
           htop
         ];
@@ -45,7 +45,7 @@ in rec {
         uid = 1001;
         packages = with pkgs; [
           tree
-          neofetch # I use NixOS BTW
+          fastfetch # I use NixOS BTW
           duf
           htop
         ];
